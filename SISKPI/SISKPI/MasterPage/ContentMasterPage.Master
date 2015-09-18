@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ContentMasterPage.master.cs"
+    Inherits="SISKPI.ContentMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>神华国华宁东热电——实时运行绩效管理系统</title>
+    <link href="~/css/template.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
+    <asp:Literal ID="lblScript1" runat="server" />
+    <asp:Literal ID="lblScript2" runat="server" />
+    <asp:Literal ID="lblScript3" runat="server" />
+    <asp:Literal ID="lblScript4" runat="server" />
+    <asp:Literal ID="lblScript5" runat="server" />
+    <asp:Literal ID="lblScript6" runat="server" />
+    <asp:Literal ID="lblScript7" runat="server" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Auto">
+    </asp:ScriptManager>
+    <asp:ContentPlaceHolder ID="MainContent" runat="server"  ClientIDMode="Static">
+    </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

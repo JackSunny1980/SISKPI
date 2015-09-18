@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8451806-7880-4C4F-BFCA-99EEDF105379}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SISPI</RootNamespace>
+    <AssemblyName>SISPI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <SilverlightApplicationList>
+    </SilverlightApplicationList>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Default\css.css" />
+    <Content Include="App_Themes\Default\images\arrows.png" />
+    <Content Include="App_Themes\Default\images\background.png" />
+    <Content Include="App_Themes\Default\images\borders.gif" />
+    <Content Include="App_Themes\Default\images\bottom-left-t.gif" />
+    <Content Include="App_Themes\Default\images\bottom-right-t.gif" />
+    <Content Include="App_Themes\Default\images\bottom.gif" />
+    <Content Include="App_Themes\Default\images\box.gif" />
+    <Content Include="App_Themes\Default\images\button.png" />
+    <Content Include="App_Themes\Default\images\buttons.png" />
+    <Content Include="App_Themes\Default\images\contenttitle.png" />
+    <Content Include="App_Themes\Default\images\dock.png" />
+    <Content Include="App_Themes\Default\images\form-checkbox.png" />
+    <Content Include="App_Themes\Default\images\form-input.png" />
+    <Content Include="App_Themes\Default\images\form-radiobutton.png" />
+    <Content Include="App_Themes\Default\images\form-select.png" />
+    <Content Include="App_Themes\Default\images\headbg.gif" />
+    <Content Include="App_Themes\Default\images\icons.png" />
+    <Content Include="App_Themes\Default\images\list-header.png" />
+    <Content Include="App_Themes\Default\images\menu10.gif" />
+    <Content Include="App_Themes\Default\images\middle.gif" />
+    <Content Include="App_Themes\Default\images\MiddleLeft.gif" />
+    <Content Include="App_Themes\Default\images\MiddleRight.gif" />
+    <Content Include="App_Themes\Default\images\popup-copypaste-anchor.png" />
+    <Content Include="App_Themes\Default\images\popup-copypaste-separator.png" />
+    <Content Include="App_Themes\Default\images\popup-copypaste.png" />
+    <Content Include="App_Themes\Default\images\submenubg.jpg" />
+    <Content Include="App_Themes\Default\images\submenuitembg.jpg" />
+    <Content Include="App_Themes\Default\images\tabbar.png" />
+    <Content Include="App_Themes\Default\images\titlebar-buttons.png" />
+    <Content Include="App_Themes\Default\images\titlebar.png" />
+    <Content Include="App_Themes\Default\images\top-left-t.gif" />
+    <Content Include="App_Themes\Default\images\top-right-t.gif" />
+    <Content Include="App_Themes\Default\images\top.gif" />
+    <Content Include="App_Themes\Default\images\topbar.png" />
+    <Content Include="App_Themes\Default\images\tr_backgroudimage.jpg" />
+    <Content Include="App_Themes\Default\StyleSheet.css" />
+    <Content Include="CSS\MainCSSA.css" />
+    <Content Include="find.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SISError.htm" />
+    <Content Include="Default.aspx" />
+    <Content Include="CSS\MainCSS.css" />
+    <Content Include="CSS\screen.css" />
+    <Content Include="CSS\style.css" />
+    <Content Include="Default\Images\anniu.gif" />
+    <Content Include="Default\Images\Ico\1.gif" />
+    <Content Include="Default\Images\Ico\10.gif" />
+    <Content Include="Default\Images\Ico\100.gif" />
+    <Content Include="Default\Images\Ico\1000.gif" />
+    <Content Include="Default\Images\Ico\1001.gif" />
+    <Content Include="Default\Images\Ico\1002.gif" />
+    <Content Include="Default\Images\Ico\101.gif" />
+    <Content Include="Default\Images\Ico\11.gif" />
+    <Content Include="Default\Images\Ico\12.gif" />
+    <Content Include="Default\Images\Ico\14.gif" />
+    <Content Include="Default\Images\Ico\15.gif" />
+    <Content Include="Default\Images\Ico\16.gif" />
+    <Content Include="Default\Images\Ico\2.gif" />
+    <Content Include="Default\Images\Ico\3.gif" />
+    <Content Include="Default\Images\Ico\4.gif" />
+    <Content Include="Default\Images\Ico\5.gif" />
+    <Content Include="Default\Images\Ico\6.gif" />
+    <Content Include="Default\Images\Ico\7.gif" />
+    <Content Include="Default\Images\Ico\8.gif" />
+    <Content Include="Default\Images\Ico\9.gif" />
+    <Content Include="Default\Images\menu_bg.gif" />
+    <Content Include="Default\Images\menu_buttom.gif" />
+    <Content Include="Default\Images\menu_srco_point.gif" />
+    <Content Include="Default\Images\menu_td_rt_bg.gif" />
+    <Content Include="Default\Images\open_win_arrow.gif" />
+    <Content Include="Default\Images\scroll_mid_lf.gif" />
+    <Content Include="Default\Images\top2.gif" />
+    <Content Include="Default\Images\top3.gif" />
+    <Content Include="Default\Images\top_bg.png" />
+    <Content Include="Default\JS\JSCookTree.js" />
+    <Content Include="Default\JS\theme.js" />
+    <Content Include="Default\style.css" />
+    <Content Include="Default\theme.css" />
+    <Content Include="Default\ThemeXP\join.gif" />
+    <Content Include="Default\ThemeXP\joinbottom.gif" />
+    <Content Include="Default\ThemeXP\line.gif" />
+    <Content Include="Default\ThemeXP\minus.gif" />
+    <Content Include="Default\ThemeXP\minusbottom.gif" />
+    <Content Include="Default\ThemeXP\plus.gif" />
+    <Content Include="Default\ThemeXP\plusbottom.gif" />
+    <Content Include="Default\ThemeXP\spacer.gif" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="js\GridViewColor.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\ASPNETDB.MDF">
+    </Content>
+    <Content Include="App_Data\aspnetdb_log.ldf">
+      <DependentUpon>ASPNETDB.MDF</DependentUpon>
+    </Content>
+    <Content Include="js\DatePicker\calendar.js" />
+    <Content Include="js\DatePicker\config.js" />
+    <Content Include="js\DatePicker\lang\en.js" />
+    <Content Include="js\DatePicker\lang\zh-cn.js" />
+    <Content Include="js\DatePicker\lang\zh-tw.js" />
+    <Content Include="js\DatePicker\My97DatePicker.htm" />
+    <Content Include="js\DatePicker\skin\datePicker.gif" />
+    <Content Include="js\DatePicker\skin\default\datepicker.css" />
+    <Content Include="js\DatePicker\skin\default\img.gif" />
+    <Content Include="js\DatePicker\skin\WdatePicker.css" />
+    <Content Include="js\DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="js\DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="js\DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="js\DatePicker\WdatePicker.js" />
+    <Content Include="js\DatePicker\开发包\lang\en.js" />
+    <Content Include="js\DatePicker\开发包\lang\zh-cn.js" />
+    <Content Include="js\DatePicker\开发包\lang\zh-tw.js" />
+    <Content Include="js\DatePicker\开发包\readme.txt" />
+    <Content Include="js\DatePicker\开发包\skin\datePicker.gif" />
+    <Content Include="js\DatePicker\开发包\skin\default\datepicker.css" />
+    <Content Include="js\DatePicker\开发包\skin\default\img.gif" />
+    <Content Include="js\DatePicker\开发包\skin\WdatePicker.css" />
+    <Content Include="js\DatePicker\开发包\skin\whyGreen\bg.jpg" />
+    <Content Include="js\DatePicker\开发包\skin\whyGreen\datepicker.css" />
+    <Content Include="js\DatePicker\开发包\skin\whyGreen\img.gif" />
+    <Content Include="js\jquery-1.3.2-vsdoc.js" />
+    <Content Include="js\MHYAutoCalc.js" />
+    <Content Include="js\ParamConfig.js" />
+    <Content Include="js\Config.js" />
+    <Content Include="js\Common.js" />
+    <Content Include="js\jquery-1.3.2.js" />
+    <Content Include="js\jquery-ui.js" />
+    <Content Include="js\ProcessBar.js" />
+    <Content Include="js\Tab\jquery.idTabs.css" />
+    <Content Include="js\Tab\jquery.idTabs.min.js" />
+    <Content Include="js\Tab\jquery.history_remote.pack.js" />
+    <Content Include="js\Tab\jquery.tabs-ie.css" />
+    <Content Include="js\Tab\jquery.tabs.css" />
+    <Content Include="js\Tab\jquery.tabs.js" />
+    <Content Include="js\Tab\loading.gif" />
+    <Content Include="js\Tab\tab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Default\SkinFile.skin" />
+    <None Include="js\Tab\META.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TempImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\SIS.DBControl\SIS.DBControl.csproj">
+      <Project>{DADD2B60-3330-4E3D-B69F-ABB24ADA7BEB}</Project>
+      <Name>SIS.DBControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\SIS.Exceler\SIS.Exceler.csproj">
+      <Project>{35F3DC9D-037A-453E-AB51-1CACD4FB983E}</Project>
+      <Name>SIS.Exceler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\SIS.Loger\SIS.Loger.csproj">
+      <Project>{C3DE9EE9-65C3-43AE-AEA3-96A8A63CFCF4}</Project>
+      <Name>SIS.Loger</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>14069</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

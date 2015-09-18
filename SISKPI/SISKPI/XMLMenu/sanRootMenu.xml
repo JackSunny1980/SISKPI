@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" standalone="yes"?>
+
+<root>
+  <menu>
+    <ID>1</ID>
+    <Name>运行绩效</Name>
+  </menu>
+  <menu>
+    <ID>2</ID>
+    <Name>绩效报表</Name>
+  </menu>
+</root>

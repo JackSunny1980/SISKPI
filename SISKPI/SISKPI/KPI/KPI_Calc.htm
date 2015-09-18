@@ -1,0 +1,856 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SISKPI 网页计算器</title>
+    <link href="../CSS/MainCSS.css" type="text/css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="../js/tab/jquery.tabs.css" type="text/css" media="print, projection, screen" />
+    [if lte IE 7]>
+        <link rel="stylesheet" href="../js/tab/jquery.tabs-ie.css" type="text/css" media="projection, screen">
+        <![endif]
+    <script src="../js/ProcessBar.js" type="text/javascript"></script>
+    <script src="../js/jquery-1.3.2.js" type="text/javascript"></script>
+    <script src="../js/Common.js" type="text/javascript"></script>
+    <script src="../js/tab/jquery.history_remote.pack.js" type="text/javascript"></script>
+    <script src="../js/Tab/jquery.tabs.js" type="text/javascript"></script>
+    <script src="../js/Config.js" type="text/javascript"></script>
+    <script src="../js/GridViewColor.js" type="text/javascript"></script>-->
+</head>
+<script type="text/javascript">
+//    var t;
+//    t = self.setInterval("ShowTime()", 10);
+//    var Exp = "";
+//    function ShowTime() {
+//        var Today = new Date(); //这条语句要放在该函数内，而不能作为全局变量
+//        hours = Today.getHours();
+//        minutes = Today.getMinutes(); second = Today.getSeconds();
+//        if (hours < 10) hours = "0" + hours
+//        if (minutes < 10) minutes = "0" + minutes
+//        if (second < 10) second = "0" + second
+//        document.all.time.value = hours + ":" + minutes + ":" + second;
+
+//    }
+//    function MyFun() {
+//        alert(Exp);
+//    }
+//    //获取光标在ID为obj控件的位置，返回下标   
+//    function getPos(obj) {
+//        obj.focus();
+//        var s = document.selection.createRange();
+//        s.setEndPoint("StartToStart", obj.createTextRange())
+//        return s.text.length;
+//    }
+//    //设置光标位置的函数
+//    function setCursor(ctrl, pos) {
+//        if (ctrl.setSelectionRange) {
+//            ctrl.focus();
+//            ctrl.setSelectionRange(pos, pos);
+//        }
+//        else if (ctrl.createTextRange) {
+//            var range = ctrl.createTextRange();
+//            range.collapse(true);
+//            range.moveEnd('character', pos);
+//            range.moveStart('character', pos);
+//            range.select();
+//        }
+//    }
+//    //删除表达式中的元素
+//    function Delete() {
+//        var Len = document.all.In.value.length;
+//        Exp = document.all.In.value;
+//        var Arr = Exp.split("");
+//        var pos = getPos(In);
+//        Arr.splice(pos - 1, 1, "");
+//        var toStr = "";
+//        for (var j = 0; j < Arr.length; ++j)
+//            toStr += Arr[j];
+//        Exp = toStr;
+//        Arr = toStr.split("");
+//        document.all.In.value = toStr;
+//        setCursor(In, pos - 1);
+//    }
+//    //清除表达式
+//    function Clearn() {
+//        document.all.In.value = "";
+//    }
+//    function addParentheses(strObj) {
+//        var Temp = strObj;
+//        var Arr = Temp.split("");
+//        for (var i = 0; i < Arr.length; ++i) {
+//            if (Arr[i] == "s" || Arr[i] == "c" || Arr[i] == "t" || Arr[i] == "√") {
+//                if (Arr[i + 1] != "(") {
+//                    Arr.splice(i, 1, Arr[i] + "(");
+//                    var toStr = "";
+//                    for (var j = 0; j < Arr.length; ++j)
+//                        toStr += Arr[j];
+//                    Arr = toStr.split("");
+//                    var Index = i + 2;
+//                    if (Arr[Index] != "s" && Arr[Index] != "c" && Arr[Index] != "t" && Arr[Index] != "√") {
+//                        var Bol = true;
+//                        while (Bol) {
+//                            if (Arr[Index + 1] == "+" || Arr[Index + 1] == "-" || Arr[Index + 1] == "*" || Arr[Index + 1] == "/" || Arr.length <= (Index + 1)) {
+//                                Arr.splice(Index, 1, Arr[Index] + ")");
+//                                var toStr = "";
+//                                for (var l = 0; l < Arr.length; ++l)
+//                                    toStr += Arr[l];
+//                                Arr = toStr.split("");
+//                                Bol = false;
+//                            }
+//                            ++Index;
+//                        }
+//                        var S = "";
+//                        for (var k = 0; k < Arr.length; ++k)
+//                            S += Arr[k];
+//                        S = Arr.toString();
+//                    }
+//                    //如果参数是函数
+//                    else {
+//                        var val = 0;
+//                        var Bol = true;
+//                        var hasPar = false;
+//                        while (Bol) {
+//                            if (Arr[Index + 1] == "(") {
+//                                hasPar = true;
+//                                val++;
+//                            }
+//                            if (Arr[Index + 1] == ")")
+//                                --val;
+//                            //没有括号的情况
+//                            if (((Arr[Index + 1] == "+" || Arr[Index + 1] == "-" || Arr[Index + 1] == "*" || Arr[Index + 1] == "/") && !hasPar) || (Index + 1) >= Arr.length) {
+//                                Arr.splice(Index, 1, Arr[Index] + ")");
+//                                var toStr = "";
+//                                for (var j = 0; j < Arr.length; ++j)
+//                                    toStr += Arr[j];
+//                                Arr = toStr.split("");
+//                                Bol = false;
+//                            }
+//                            //有括号的情况
+//                            if (val == 0 && hasPar) {
+//                                Arr.splice(Index + 1, 1, Arr[Index + 1] + ")");
+//                                var toStr = "";
+//                                for (var j = 0; j < Arr.length; ++j)
+//                                    toStr += Arr[j];
+//                                Arr = toStr.split("");
+//                                Bol = false;
+//                            }
+//                            ++Index;
+//                        }
+//                    }
+//                }
+//            }
+//            var Str = "";
+//            for (var m = 0; m < Arr.length; ++m)
+//                Str += Arr[m];
+//            Exp = Str;
+//        }
+//    }
+
+//    //在表达式中添加表达式元素
+//    function addElement(Ele) {
+//        var Arr = new Array();
+//        Exp = document.all.In.value;
+//        var Index = getPos(In);
+//        if (Index >= Exp.length) {
+//            Exp += Ele;
+//        }
+//        else {
+//            Arr = Exp.split("");
+//            var Cha = Arr[Index];
+//            Arr.splice(Index, 1, Ele + Cha);
+//            var Str = "";
+//            for (var i = 0; i < Arr.length; ++i)
+//                Str += Arr[i];
+//            Exp = Str;
+//        }
+//        document.all.In.value = Exp;
+//        setCursor(In, Index + Ele.length);
+//    }
+//    function Input1() {
+//        addElement("1");
+//    }
+//    function Input2() {
+//        addElement("2");
+//    }
+//    function Input3() {
+//        addElement("3");
+//    }
+//    function Input4() {
+//        addElement("4");
+//    }
+//    function Input5() {
+//        addElement("5");
+//    }
+//    function Input6() {
+//        addElement("6");
+//    }
+//    function Input7() {
+//        addElement("7");
+//    }
+//    function Input8() {
+//        addElement("8");
+//    }
+//    function Input9() {
+//        addElement("9");
+//    }
+//    function Input0() {
+//        addElement("0");
+//    }
+//    function InputDot() {
+//        addElement(".");
+//    }
+//    function InputSin() {
+//        addElement("sin");
+//    }
+//    function InputCos() {
+//        addElement("cos");
+//    }
+//    function InputTan() {
+//        addElement("tan");
+//    }
+//    function InputSqtr() {
+//        addElement("√");
+//    }
+//    function InputAdd() {
+//        addElement("+");
+//    }
+//    function InputMin() {
+//        addElement("-");
+//    }
+//    function InputMult() {
+//        addElement("*");
+//    }
+//    function InputDiv() {
+//        addElement("/");
+//    }
+//    function InputPI() {
+//        addElement("3.141592");
+//    }
+//    function InputLPar() {
+//        addElement("(");
+//    }
+//    function InputRPar() {
+//        addElement(")");
+//    }
+//    function InputLn() {
+//        addElement("ln");
+//    }
+//    function InputLog() {
+//        addElement("log");
+//    }
+//    function InputEql() {
+//        Exp = document.all.In.value;
+//        var Str = "";
+//        Str = Exp.replace(/sin/g, "s");
+//        Str = Str.replace(/cos/g, "c");
+//        Str = Str.replace(/tan/g, "t");
+
+//        addParentheses(Str);
+//        Exp = Exp.replace(/t/g, "Math.tan");
+//        Exp = Exp.replace(/s/g, "Math.sin");
+//        Exp = Exp.replace(/c/g, "Math.cos");
+//        Exp = Exp.replace(/√/g, "Math.sqrt");
+//        var result = eval(Exp);
+//        document.all.Restlt.value = result;
+//    }
+</script>
+<body style="width: 100%;">
+    <table width="800px" class="table" id="table1" align="center">
+        <tr style="width: 100%">
+            <td width="10%">
+            </td>
+            <td width="80%" colspan="2" align="center" class="title">
+                函数示例
+            </td>
+            <td width="10%">
+            </td>
+        </tr>
+        <tr style="width: 100%; vertical-align: top;">
+            <td width="10%">
+            </td>
+            <td width="40%" align="center">
+                <table border="1" cellpadding="0" cellspacing="0" width="100%" class="table" style="text-align: left">
+                    <tr style="background-color: #6591CE">
+                        <td valign="top" align="center" width="60px">
+                            函数名称
+                        </td>
+                        <td valign="top" align="center" width="160px">
+                            含义
+                        </td>
+                        <td valign="top" align="center">
+                            函数格式
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" valign="top" align="left">
+                            数字计算函数
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            ABS
+                        </td>
+                        <td valign="top" width="160px">
+                            求绝对值
+                        </td>
+                        <td valign="top">
+                            ABS(double x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            ACOS
+                        </td>
+                        <td valign="top" width="160px">
+                            求反余弦值
+                        </td>
+                        <td valign="top">
+                            ACOS(double x),-1≤x≤1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            ASIN
+                        </td>
+                        <td valign="top" width="160px">
+                            求反正弦值
+                        </td>
+                        <td valign="top">
+                            ASIN(double x) ,-1≤x≤1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            ATAN
+                        </td>
+                        <td valign="top" width="160px">
+                            求反正切
+                        </td>
+                        <td valign="top">
+                            ATAN(double x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            AVERAGE
+                        </td>
+                        <td valign="top" width="160px">
+                            求平均值
+                        </td>
+                        <td valign="top">
+                            AVERAGE(double x1,double x2,…)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            COS
+                        </td>
+                        <td valign="top" width="160px">
+                            求余弦
+                        </td>
+                        <td valign="top">
+                            COS(double x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            EXP
+                        </td>
+                        <td valign="top" width="160px">
+                            求e的指定次幂
+                        </td>
+                        <td valign="top">
+                            EXP(double x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            FACT
+                        </td>
+                        <td valign="top" width="160px">
+                            求界乘
+                        </td>
+                        <td valign="top">
+                            FACT(int x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            FLOOR
+                        </td>
+                        <td valign="top" width="160px">
+                            求小于或等于指定数字的最大整数
+                        </td>
+                        <td valign="top">
+                            FLOOR(double x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            INT
+                        </td>
+                        <td valign="top" width="160px">
+                            求小数取整
+                        </td>
+                        <td valign="top">
+                            INT(double x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            LN
+                        </td>
+                        <td valign="top" width="160px">
+                            求以e为底对数
+                        </td>
+                        <td valign="top">
+                            LN(double d)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            LOG
+                        </td>
+                        <td valign="top" width="160px">
+                            求指定底时的对数
+                        </td>
+                        <td valign="top">
+                            LOG(double x,double y),x&gt;0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            LOG10
+                        </td>
+                        <td valign="top" width="160px">
+                            求以10为底的对数
+                        </td>
+                        <td valign="top">
+                            LOG10(double x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            MAX
+                        </td>
+                        <td valign="top" width="160px">
+                            求最大值
+                        </td>
+                        <td valign="top">
+                            MAX(double x1,double x2,…)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            MIN
+                        </td>
+                        <td valign="top" width="160px">
+                            求最小值
+                        </td>
+                        <td valign="top">
+                            MIN(double x1,double x2,…)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            MOD
+                        </td>
+                        <td valign="top" width="160px">
+                            求余值
+                        </td>
+                        <td valign="top">
+                            MOD(double x,double y),y≠0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            PI
+                        </td>
+                        <td valign="top" width="160px">
+                            求π值
+                        </td>
+                        <td valign="top">
+                            PI()
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="60px">
+                            POWER
+                        </td>
+                        <td width="160px">
+                            求幂
+                        </td>
+                        <td>
+                            POWER(double x,double y),x&gt;0,y&gt;0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            PRODUCT
+                        </td>
+                        <td valign="top" width="160px">
+                            求连乘积
+                        </td>
+                        <td valign="top">
+                            PRODUCT (double x1,double x2,…)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            RADIANS
+                        </td>
+                        <td valign="top" width="160px">
+                            求弧度（弧度转角度）
+                        </td>
+                        <td valign="top">
+                            RADIANS(double x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            ROUND
+                        </td>
+                        <td valign="top" width="160px">
+                            求小数取整
+                        </td>
+                        <td valign="top">
+                            ROUND(double x,int y)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            SIN
+                        </td>
+                        <td valign="top" width="160px">
+                            求正弦值
+                        </td>
+                        <td valign="top">
+                            SIN(double x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            SQRT
+                        </td>
+                        <td valign="top" width="160px">
+                            求平方根
+                        </td>
+                        <td valign="top">
+                            SQRT(double x),x≥0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            SQUARE
+                        </td>
+                        <td valign="top" width="160px">
+                            求平方
+                        </td>
+                        <td valign="top">
+                            SQUARE(double x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            TAN
+                        </td>
+                        <td valign="top" width="160px">
+                            求正切值
+                        </td>
+                        <td valign="top">
+                            TAN(double x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            SUM
+                        </td>
+                        <td valign="top" width="160px">
+                            求连和
+                        </td>
+                        <td valign="top">
+                            SUM (double x1,double x2,…)
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="40%" align="center" valign="top">
+                <!--
+                <table border="5" bgcolor="#6591CE" align="center" cellspacing="0" cellpadding="0"
+                    width="350px">
+                    <tr>
+                        <td>
+                            网页计算器
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <input id="time" type="text" style="width: 120px" />
+                        </td>
+                    </tr>
+                </table>
+                <table border="5" bgcolor="#6591CE" align="center" cellspacing="0" cellpadding="0"
+                    width="350px">
+                    <tr>
+                        <td align="left" style="width: 80px">
+                            计算公式
+                        </td>
+                        <td align="left">
+                            <input id="In" type="text" style="width: 160px" />
+                        </td>
+                        <td align="left">
+                            <input id="bs" type="button" value="Backspace" style="width: 100px" onclick="Delete();" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="width: 80px">
+                            计算结果
+                        </td>
+                        <td align="left">
+                            <input id="Restlt" type="text" style="width: 160px" />
+                        </td>
+                        <td align="left">
+                            <input id="Clearn" type="button" value="Clear" style="width: 100px" onclick="Clearn();" />
+                        </td>
+                    </tr>
+                </table>
+                <table border="5" bgcolor="#6591CE" align="center" cellspacing="0" cellpadding="0"
+                    width="350px">
+                    <tr>
+                        <td>
+                            <input type="button" id="N1" style="width: 50px" value="1" onclick="Input1();" />
+                        </td>
+                        <td>
+                            <input type="button" id="N2" style="width: 50px" value="2" onclick="Input2();" />
+                        </td>
+                        <td>
+                            <input type="button" id="N3" style="width: 50px" value="3" onclick="Input3();" />
+                        </td>
+                        <td>
+                            <input type="button" id="Add" style="width: 40px" value="+" onclick="InputAdd();" />
+                        </td>
+                        <td>
+                            <input type="button" id="Sub" style="width: 40px" value="-" onclick="InputMin();" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" id="N4" style="width: 50px" value="4" onclick="Input4();" />
+                        </td>
+                        <td>
+                            <input type="button" id="N5" style="width: 50px" value="5" onclick="Input5();" />
+                        </td>
+                        <td>
+                            <input type="button" id="N6" style="width: 50px" value="6" onclick="Input6();" />
+                        </td>
+                        <td>
+                            <input type="button" id="Times" style="width: 40px" value="*" onclick="InputMult();" />
+                        </td>
+                        <td>
+                            <input type="button" id="Divd" style="width: 40px" value="/" onclick="InputDiv();" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" id="N7" style="width: 50px" value="7" onclick="Input7();" />
+                        </td>
+                        <td>
+                            <input type="button" id="N8" style="width: 50px" value="8" onclick="Input8();" />
+                        </td>
+                        <td>
+                            <input type="button" id="N9" style="width: 50px" value="9" onclick="Input9();" />
+                        </td>
+                        <td>
+                            <input type="button" id="Sqt" style="width: 40px" value="√" onclick="InputSqtr();" />
+                        </td>
+                        <td>
+                            <input type="button" id="sin" style="width: 40px" value="sin" onclick="InputSin();" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" id="N0" style="width: 50px" value="0" onclick="Input0();" />
+                        </td>
+                        <td>
+                            <input type="button" id="Dot" style="width: 50px" value="." onclick="InputDot();" />
+                        </td>
+                        <td>
+                            <input type="button" id="Eql" style="width: 50px" value="=" onclick="InputEql();" />
+                        </td>
+                        <td>
+                            <input type="button" id="cos" style="width: 40px" value="cos" onclick="InputCos();" />
+                        </td>
+                        <td>
+                            <input type="button" id="tan" style="width: 40px" value="tan" onclick="InputTan();" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" id="PI" style="width: 50px" value="π" onclick="InputPI();" />
+                        </td>
+                        <td>
+                            <input type="button" id="L_Par" style="width: 50px" value="(" onclick="InputLPar();" />
+                        </td>
+                        <td>
+                            <input type="button" id="R_Par" style="width: 50px" value=")" onclick="InputRPar();" />
+                        </td>
+                        <td>
+                            <input type="button" id="Ln" style="width: 40px" value="ln" onclick="InputLn();" />
+                        </td>
+                        <td>
+                            <input type="button" id="Log" style="width: 40px" value="log" onclick="InputLog();" />
+                        </td>
+                    </tr>
+                </table>
+-->
+                <table border="1" cellpadding="0" cellspacing="0" width="100%" class="table" style="text-align: left">
+                    <tr style="background-color: #6591CE">
+                        <td valign="top" align="center" width="60px">
+                            函数名称
+                        </td>
+                        <td valign="top" align="center" width="160px">
+                            含义
+                        </td>
+                        <td valign="top" align="center">
+                            函数格式
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" valign="top">
+                            字符串处理函数
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            NOW
+                        </td>
+                        <td valign="top" width="160px">
+                            求现在时间的刻度值
+                        </td>
+                        <td valign="top">
+                            NOW() NOW(string Format)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            CHAR
+                        </td>
+                        <td valign="top" width="160px">
+                            求字符
+                        </td>
+                        <td valign="top">
+                            CHAR(int x) ,1≤x≤255
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            LOWER
+                        </td>
+                        <td valign="top" width="160px">
+                            求字符串小写
+                        </td>
+                        <td valign="top">
+                            LOWER(string s)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            LEFT
+                        </td>
+                        <td valign="top" width="160px">
+                            求子字符串从左边开始且具有指定的长度
+                        </td>
+                        <td valign="top">
+                            LEFT(string s,int x)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            LEN
+                        </td>
+                        <td valign="top" width="160px">
+                            求字符串长度
+                        </td>
+                        <td valign="top">
+                            LEN(string s)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            SUBSTRING
+                        </td>
+                        <td valign="top" width="160px">
+                            求子字符串从指定的字符位置开始且具有指定的长度
+                        </td>
+                        <td valign="top">
+                            SUBSTRING(string s,int x,int y)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            TRIM
+                        </td>
+                        <td valign="top" width="160px">
+                            求字符串两边去空格
+                        </td>
+                        <td valign="top">
+                            TRIM(string s)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            UPPER
+                        </td>
+                        <td valign="top" width="160px">
+                            求字符串大写
+                        </td>
+                        <td valign="top">
+                            UPPER(string s)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" valign="top">
+                            专业处理函数
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            PSK
+                        </td>
+                        <td valign="top" width="160px">
+                            已知饱和温度求饱和压力
+                        </td>
+                        <td valign="top">
+                            PSK(double T)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            TSK
+                        </td>
+                        <td valign="top" width="160px">
+                            已知饱和压力求饱和温度
+                        </td>
+                        <td valign="top">
+                            TSK(double P)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" width="60px">
+                            H_PT
+                        </td>
+                        <td valign="top" width="160px">
+                            过冷水、过热蒸汽已知压力、温度求焓，压力单位bar，温度单位DegC，焓值单位kJ/kg
+                        </td>
+                        <td valign="top">
+                            H_PT(double P, double T)
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="10%">
+            </td>
+        </tr>
+    </table>
+    <!--<input id="Input" type="button" value="click" onclick="MyFun();" />-->
+</body>
+</html>

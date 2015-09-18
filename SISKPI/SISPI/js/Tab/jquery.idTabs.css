@@ -1,0 +1,45 @@
+﻿/*主容器*/ 
+.usual { 
+    /*background:#cee; 
+    color:#111; */
+    padding:0px 0px 0px 0px; 
+    width:400px; 
+    border:0px solid #97A5B0;
+    margin:8px auto; 
+} 
+
+/*选项卡*/ 
+.usual ul 
+{ 
+margin:0; 
+padding:0; 
+/*padding-left:2em; */
+overflow:auto;/*火狐等清理浮动*/ 
+_display:inline-block;/*ie6清理浮动*/ 
+} 
+.usual li { list-style:none; float:left; border:1px solid #97A5B0;} 
+.usual ul a { 
+    display:block; 
+    padding:6px 10px; 
+    text-decoration:none; 
+    font:12px Arial; 
+    color:#FFF; 
+    background:#22A4C4; 
+    outline:none; 
+} 
+.usual ul a:hover { 
+    color:#FFF; 
+    background:#0B718B; 
+    } 
+.usual ul a.selected { 
+    color:#000; 
+    background:snow; 
+    cursor:default; 
+    } 
+     
+    /*tab页*/ 
+.usual div { 
+    /*padding:0px 0px 8px 20px; */
+    background:snow; 
+    font:10pt 微软雅黑; 
+} 

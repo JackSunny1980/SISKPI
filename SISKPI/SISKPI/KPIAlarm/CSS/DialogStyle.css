@@ -1,0 +1,29 @@
+﻿
+.row_P
+{
+    margin: 0;
+    padding: 5px;
+}
+.row_P label
+{
+    float: left;
+    width: 80px;
+    height: 18px;
+    text-align: right;
+    margin: 2px 8px 0 0;
+}
+.row_P input
+{
+    display: block;
+    font-size: 15px;
+    height: 20px;
+}
+.validateTips
+{
+    border: 1px solid transparent;
+    padding: 0.3em;
+}
+.ui-state-error
+{
+    padding: .3em;
+}

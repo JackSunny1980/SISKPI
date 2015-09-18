@@ -1,0 +1,183 @@
+﻿.layout
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.layout .header
+{
+    height: 35px;
+    margin: 0;
+    padding: 10px 0 0 0;
+}
+.header h2
+{
+    font-family: 隶书,Verdana,Arial,Helvetica,sans-serif;
+    padding: 0;
+    text-align: center;
+    color: #6591CE;
+    font-weight: bold;
+    line-height: 30px;
+    font-size: 20pt;
+    margin: 0;
+}
+
+.layout .searchPanel
+{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.layout .editPanel
+{
+    padding: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.layout .toolTipPanel
+{
+    padding: 0;
+    margin: 0 0 0 0;
+    background-color: #b1dffc;
+    color: #004f80;
+    width: 100%;
+    height: 30px;
+}
+
+.toolTipPanel h2
+{
+    display: block;
+    float: left;
+    font-size: 16px;
+    margin: 10px 0 0 0px;
+}
+.toolTipPanel .leftTip
+{
+    margin: 10px 0 0 30px;
+}
+.toolTipPanel .rightTip
+{
+    float: right;
+    margin: 10px 50px 0 0;
+}
+.toolTipPanel .splitLine
+{
+    float: left;
+    display: block;
+    line-height: 10px;
+    margin: 10px 5px 0 5px;
+}
+
+.searchPanel ul
+{
+    list-style: none;
+    margin: 0 0 0 30px;
+    background-color: #f7faff;
+    padding: 0;
+    height: 35px;
+    width: 94%;
+}
+
+.searchPanel ul li
+{
+    float: left;
+    list-style: none;
+    padding: 5px;
+}
+.searchPanel ul li.leftLast
+{
+    float: left;
+    list-style: none;
+    padding: 5px 0 5px 0;
+}
+
+.searchPanel ul li.Export
+{
+    float: right;
+    list-style: none;
+    padding: 5px 0;
+    margin: 0 5px 0 0;
+}
+
+.searchPanel ul li label
+{
+    padding: 5px 0 5px 5px;
+    display: inline;
+}
+.dropdown
+{
+    width: 172px;
+    height: 23px;
+    cursor: pointer;
+    border: 1px solid #a6c9e2;
+}
+
+.editPanel ul
+{
+    background-color: #BFDBFF;
+    list-style: none;
+    margin: 0 0 0 30px;
+    padding: 0;
+    float: left;
+    width: 94%;
+    height: 30px;
+}
+.editPanel ul li
+{
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 3px 5px 0 5px;
+}
+
+.divide
+{
+    width: 0;
+    height: 18px;
+    padding: 0;
+    display: inline-block;
+    border: 1px dotted #ccc;
+}
+
+.button
+{
+    float: left;
+    width: 75px;
+    height: 25px;
+    color: #2c4d79;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid #a3c0e8;
+    background: #E2F0FF url('/images/DXR.gif') repeat-x center top;
+}
+
+.button:hover
+{
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #a3c0e8;
+    background: #ff9c3c;
+}
+.textBox
+{
+    width: 125px;
+    height: 20px;
+    padding: 0 3px 0 3px;
+    border: 1px solid #a6c9e2;
+    font-size: 15px;
+    display: block;
+}
+
+
+.layout .listPanel
+{
+    padding: 0;
+    margin: 0 0 0 0;
+    width: 100%;
+}
+.listPanel div
+{
+    margin: 0 0 0 30px;
+}

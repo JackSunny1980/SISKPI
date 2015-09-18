@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" standalone="yes"?>
+
+<root>
+  <menu>
+    <ID>1</ID>
+    <Name>指标管理</Name>
+  </menu>
+  <menu>
+    <ID>2</ID>
+    <Name>班次管理</Name>
+  </menu>
+  <menu>
+    <ID>4</ID>
+    <Name>实时管理</Name>
+  </menu>
+  <menu>
+    <ID>5</ID>
+    <Name>报表管理</Name>
+  </menu>
+  <menu>
+    <ID>6</ID>
+    <Name>事后管理</Name>
+  </menu>
+  <menu>
+    <ID>7</ID>
+    <Name>系统管理</Name>
+  </menu>
+  <menu>
+    <ID>8</ID>
+    <Name>成本分析</Name>
+  </menu>
+</root>
