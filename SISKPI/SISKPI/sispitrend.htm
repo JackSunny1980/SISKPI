@@ -1,0 +1,65 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>火力发电厂厂级监控信息系统（SIS）</title>
+    <style type="text/css">
+        body
+        {
+            font-size: 12px;
+            line-height: 160%;
+            margin: 0px;
+            background-color: White;
+        }
+        .title1
+        {
+            color: #6591CE;
+            font-weight: bold;
+            font-size: 20pt;
+            vertical-align: bottom;
+            font-family: 隶书,Verdana,Arial,Helvetica,sans-serif;
+        }
+        .title2
+        {
+            color: #6591CE;
+            font-weight: bold;
+            font-size: 14pt;
+            vertical-align: bottom;
+            font-family: 隶书,Verdana,Arial,Helvetica,sans-serif;
+        }
+    </style>
+    <script language="javascript">
+        function setAutoBack(obj, imgn) {
+            try {
+                var img = document.getElementById("img");
+                var dyback = document.getElementById(obj);
+                img.style.height = dyback.offsetHeight - 20;
+                //img.style.left = dyback.offsetLeft;
+                // img.style.top = dyback.offsetTop;
+                img.style.width = dyback.offsetWidth - 30;
+                img.style.zIndex = -1;
+            }
+            catch (ee) {
+                try {
+                    img.style.display = "none";
+                }
+                catch (err) {
+                }
+            }
+        }
+    </script>
+</head>
+<body id="aa" onresize="setAutoBack('aa','img')" cellspacing="0" bgcolor="#EEEEEE">
+    <div style="margin: 0 0 0 0; width: 100%; height: 100%; background-color: #EEEEEE"
+        cellspacing="0">
+        <table cellspacing="0" style="width: 100%; height: 100%; background-color: #EEEEEE"
+            cellspacing="0">
+            <tr cellspacing="0" style="width: 100%; height: 100%;" cellspacing="0">
+                <td style="width: 100%; height: 100%; background-color: #EEEEEE" cellspacing="0">
+                    <img id="img" src='images/pitrend.jpg' onload="setAutoBack('aa',this)" height="550px"
+                        width="800px" style="margin: 0; padding: 0" alt="PI CoreSight" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

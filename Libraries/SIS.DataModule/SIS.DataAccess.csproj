@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D1D8FDCA-1024-44F1-8BB0-3159C1FDCC2E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIS.DataAccess</RootNamespace>
+    <AssemblyName>SIS.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>http://localhost/SISOPM.DataModule/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataModuleFactory.cs" />
+    <Compile Include="KPIDALInterface\IKPI_CoalElectricalQuotaScorebookDal.cs" />
+    <Compile Include="KPIDALInterface\IKPI_OverLimitConfigDal.cs" />
+    <Compile Include="KPIDALInterface\IKPI_OverLimitRecordDal.cs" />
+    <Compile Include="KPIDALInterface\IKPI_PersonScoreDal.cs" />
+    <Compile Include="KPIDALInterface\IKPI_ScorebookDal.cs" />
+    <Compile Include="KPIDALInterface\IKPI_TeamSettingDal.cs" />
+    <Compile Include="KPIDALInterface\IKPI_UncartQuotaScorebookDal.cs" />
+    <Compile Include="KPIDAL\ECHistoryDataAccess.cs" />
+    <Compile Include="KPIDAL\KPI_ArchivelValueDal.cs" />
+    <Compile Include="KPIDAL\KPI_MonitorDurationDal.cs" />
+    <Compile Include="KPIDAL\KPI_OverLimitConfigDal.cs" />
+    <Compile Include="KPIDAL\KPI_OverLimitRecordDal.cs" />
+    <Compile Include="KPIDAL\KPI_PersonScoreDal.cs" />
+    <Compile Include="KPIDAL\KPI_RemoveDal.cs" />
+    <Compile Include="KPIDAL\KPI_ALLDal.cs" />
+    <Compile Include="KPIDAL\KPI_CurveTagDal.cs" />
+    <Compile Include="KPIDAL\KPI_AVGDal.cs" />
+    <Compile Include="KPIDAL\KPI_InputValueDal.cs" />
+    <Compile Include="KPIDAL\KPI_ECSSArchiveDal.cs" />
+    <Compile Include="KPIDAL\KPI_RealValueDal.cs" />
+    <Compile Include="KPIDAL\KPI_RedoDal.cs" />
+    <Compile Include="KPIDAL\KPI_SATagValueDal.cs" />
+    <Compile Include="KPIDAL\KPI_ScorebookDal.cs" />
+    <Compile Include="KPIDAL\KPI_TeamSettingDal.cs" />
+    <Compile Include="KPIDAL\KPI_UnitDal.cs" />
+    <Compile Include="KPIDAL\KPI_WebKeyDal.cs" />
+    <Compile Include="KPIDAL\KPI_SystemDal.cs" />
+    <Compile Include="KPIDAL\KPI_WebDal.cs" />
+    <Compile Include="KPIDAL\KPI_EngunitDal.cs" />
+    <Compile Include="KPIDAL\KPI_PlantDal.cs" />
+    <Compile Include="KPIDAL\KPI_XLineDal.cs" />
+    <Compile Include="KPIDAL\KPI_SeqDal.cs" />
+    <Compile Include="KPIDAL\KPI_KpiDal.cs" />
+    <Compile Include="KPIDAL\KPI_ECSSSnapshotDal.cs" />
+    <Compile Include="KPIDAL\KPI_CycleDal.cs" />
+    <Compile Include="KPIDAL\KPI_ECTagDal.cs" />
+    <Compile Include="KPIDAL\KPI_RealTagDal.cs" />
+    <Compile Include="KPIDAL\KPI_PersonDal.cs" />
+    <Compile Include="KPIDAL\KPI_PositionDal.cs" />
+    <Compile Include="KPIDAL\KPI_ConstantDal.cs" />
+    <Compile Include="KPIDAL\KPI_TeamDal.cs" />
+    <Compile Include="KPIDAL\KPI_ScoreDal.cs" />
+    <Compile Include="KPIDAL\KPI_SATagDal.cs" />
+    <Compile Include="KPIDAL\KPI_SecurityDal.cs" />
+    <Compile Include="KPIDAL\KPI_GroupDal.cs" />
+    <Compile Include="KPIDAL\KPI_MenuDal.cs" />
+    <Compile Include="KPIDAL\KPI_UserDal.cs" />
+    <Compile Include="KPIDAL\KPI_LinqDal.cs" />
+    <Compile Include="KPIDAL\KPI_LinqTagDal.cs" />
+    <Compile Include="KPIDAL\KPI_DictDal.cs" />
+    <Compile Include="KPIDAL\KPI_InputTagDal.cs" />
+    <Compile Include="KPIDAL\KPI_RaceValueDal.cs" />
+    <Compile Include="KPIDAL\KPI_RaceTagDal.cs" />
+    <Compile Include="KPIDAL\ManagementScoreDataAccess.cs" />
+    <Compile Include="KPIDAL\Race_ArchiveDal.cs" />
+    <Compile Include="KPIDAL\Race_SnapshotDal.cs" />
+    <Compile Include="KPIDAL\Race_TagDal.cs" />
+    <Compile Include="KPIDAL\ReportDal.cs" />
+    <Compile Include="KPIDAL\SATagMapDataAccess.cs" />
+    <Compile Include="KPIDAL\ScoreAndBonusDAL.cs" />
+    <Compile Include="DalBase.cs" />
+    <Compile Include="KPIDAL\KPI_PeriodDal.cs" />
+    <Compile Include="KPIDAL\KPI_ShiftDal.cs" />
+    <Compile Include="KPIDAL\KPI_WorkDal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SIS.DataEntity\SIS.DataEntity.csproj">
+      <Project>{d385556a-a280-45d8-bed1-769cc8ccfaf0}</Project>
+      <Name>SIS.DataEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIS.Loger\SIS.Loger.csproj">
+      <Project>{C3DE9EE9-65C3-43AE-AEA3-96A8A63CFCF4}</Project>
+      <Name>SIS.Loger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIS.DBControl\SIS.DBControl.csproj">
+      <Project>{DADD2B60-3330-4E3D-B69F-ABB24ADA7BEB}</Project>
+      <Name>SIS.DBControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

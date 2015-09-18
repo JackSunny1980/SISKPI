@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D385556A-A280-45D8-BED1-769CC8CCFAF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIS.DataEntity</RootNamespace>
+    <AssemblyName>SIS.DataEntity</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityBase.cs" />
+    <Compile Include="KPIEntity\ECHistoryDataEntity.cs" />
+    <Compile Include="KPIEntity\ECRankEntity.cs" />
+    <Compile Include="KPIEntity\KPIContrastEntity.cs" />
+    <Compile Include="KPIEntity\KPIRankEntity.cs" />
+    <Compile Include="KPIEntity\KPI_AVGEntity.cs" />
+    <Compile Include="KPIEntity\KPI_CoalElectricalQuotaScoreEntity.cs" />
+    <Compile Include="KPIEntity\KPI_ConstantEntity.cs" />
+    <Compile Include="KPIEntity\KPI_CurveTagEntity.cs" />
+    <Compile Include="KPIEntity\KPI_CycleEntity.cs" />
+    <Compile Include="KPIEntity\KPI_DictEntity.cs" />
+    <Compile Include="KPIEntity\KPI_ECSSValueEntity.cs" />
+    <Compile Include="KPIEntity\KPI_ECTagEntity.cs" />
+    <Compile Include="KPIEntity\KPI_EngunitEnity.cs" />
+    <Compile Include="KPIEntity\KPI_GroupEntity.cs" />
+    <Compile Include="KPIEntity\KPI_InputTagEntity.cs" />
+    <Compile Include="KPIEntity\KPI_InputValueEntity.cs" />
+    <Compile Include="KPIEntity\KPI_KpiEntity.cs" />
+    <Compile Include="KPIEntity\KPI_LinqEntity.cs" />
+    <Compile Include="KPIEntity\KPI_LinqTagEntity.cs" />
+    <Compile Include="KPIEntity\KPI_MainChartsEntity.cs" />
+    <Compile Include="KPIEntity\KPI_ManagementScoreEntity.cs" />
+    <Compile Include="KPIEntity\KPI_MenuEntity.cs" />
+    <Compile Include="KPIEntity\KPI_MonitorDurationEntity.cs" />
+    <Compile Include="KPIEntity\KPI_OverLimitConfig.cs" />
+    <Compile Include="KPIEntity\KPI_OverLimitRecord.cs" />
+    <Compile Include="KPIEntity\KPI_PeriodEntity.cs" />
+    <Compile Include="KPIEntity\KPI_PersonEntity.cs" />
+    <Compile Include="KPIEntity\KPI_PersonScore.cs" />
+    <Compile Include="KPIEntity\KPI_PlantEntity.cs" />
+    <Compile Include="KPIEntity\KPI_PositionEntity.cs" />
+    <Compile Include="KPIEntity\KPI_RaceTagEntity.cs" />
+    <Compile Include="KPIEntity\KPI_RaceValueEntity.cs" />
+    <Compile Include="KPIEntity\KPI_RealTagEntity.cs" />
+    <Compile Include="KPIEntity\KPI_RedoEntity.cs" />
+    <Compile Include="KPIEntity\KPI_RemoveEntity.cs" />
+    <Compile Include="KPIEntity\KPI_SATagEntity.cs" />
+    <Compile Include="KPIEntity\KPI_SATagValueEntity.cs" />
+    <Compile Include="KPIEntity\KPI_ScorebookEntity.cs" />
+    <Compile Include="KPIEntity\KPI_ScoreEntity.cs" />
+    <Compile Include="KPIEntity\KPI_SecurityEntity.cs" />
+    <Compile Include="KPIEntity\KPI_SeqEntity.cs" />
+    <Compile Include="KPIEntity\KPI_ShiftEntity.cs" />
+    <Compile Include="KPIEntity\KPI_TeamEntity.cs" />
+    <Compile Include="KPIEntity\KPI_UncartQuotaScorebookEntity.cs" />
+    <Compile Include="KPIEntity\KPI_UnitEntity.cs" />
+    <Compile Include="KPIEntity\KPI_UserEntity.cs" />
+    <Compile Include="KPIEntity\KPI_ValueEntity.cs" />
+    <Compile Include="KPIEntity\KPI_WebEntity.cs" />
+    <Compile Include="KPIEntity\KPI_WebKeyEntity.cs" />
+    <Compile Include="KPIEntity\KPI_WorkEntity.cs" />
+    <Compile Include="KPIEntity\KPI_XLineEntity.cs" />
+    <Compile Include="KPIEntity\PersonScoreEntity.cs" />
+    <Compile Include="KPIEntity\PlantBonusEntity.cs" />
+    <Compile Include="KPIEntity\Race_ArchiveEntity.cs" />
+    <Compile Include="KPIEntity\Race_SnapshotEntity.cs" />
+    <Compile Include="KPIEntity\Race_TagEntity.cs" />
+    <Compile Include="KPIEntity\SATagMapEntity.cs" />
+    <Compile Include="KPIEntity\ShiftRaceEntity.cs" />
+    <Compile Include="KPIEntity\ShiftScoreAndBonusEntity.cs" />
+    <Compile Include="KPIEntity\ShiftScoreEntity.cs" />
+    <Compile Include="KPIEntity\SystemParameterEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

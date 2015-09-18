@@ -1,0 +1,89 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UT-8">
+    <title>SISKPI</title>
+    <link rel="stylesheet" type="text/css" href="Default/style.css">
+    <link rel="stylesheet" type="text/css" href="Default/theme.css">
+    <style type="text/css">
+        .wtoogle
+        {
+            margin: 0px;
+            background-color: #F6F6F6;
+        }
+        .wtoogle a, .wtoogle a:active, .wtoogle a:visited
+        {
+            background-color: #718BD6;
+            font-family: "Times New Roman" , Times, serif;
+            font-size: 10px;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript" language="javascript">
+        var iniCols, noCols, o_mf, o_ms, s;
+        function ini() {
+            o_mf = parent.document.getElementById("frame2");
+            o_ms = document.getElementById("menuSwitch");
+            noCols = iniCols = o_mf.cols;
+            var pos;
+            if ((pos = noCols.indexOf(",")) != -1) {
+                noCols = "0" + noCols.substring(pos);
+            }
+
+            s = false;
+        }
+
+        function MHideLeft() {
+            s = !s;
+            o_mf.cols = s ? noCols : iniCols;
+            o_ms.innerHTML = s ? "&#9658;" : "&#9668;";
+
+            //MChangePBSize(false);
+        }
+
+        //    function MChangePBSize(bleft) {
+
+        //        //objPic --  width:height=19:15
+        //        var avaiW; //available  width
+        //        var avaiH; //available  height
+
+        //        //avaiH = document.body.clientHeight;
+        //        avaiW = parent.frames[3].document.body.clientWidth;
+        //        avaiH = parent.frames[3].document.body.clientHeight;
+
+        //        if (bleft) {
+        //            //parent.frames[3].objPic.height = avaiH;	
+        //            parent.frames[3].objPic.width = avaiW; //  + dLeftWidth -dMiddleWidth;
+        //            parent.frames[3].objPic.height = avaiW * 4 / 5; //  + dLeftWidth -dMiddleWidth;
+
+
+        //        } else {
+        //            //parent.frames[3].objPic.width = avaiW;// - dLeftWidth - dMiddleWidth;
+        //            parent.frames[3].objPic.height = avaiH;
+        //            parent.frames[3].objPic.width = avaiH * 5 / 4;
+
+        //        }
+
+        //        parent.frames[3].objPic.height = "100%";
+        //        dCenterHeight = parent.frames[3].document.body.clientHeight;
+
+        //        parent.frames[3].objPic.width = dCenterHeight * 1.514;
+        //        dCenterWidth = parent.frames[3].document.body.clientWidth;
+        //        
+        //    }
+
+    </script>
+</head>
+<!--bgcolor="#EEEEEE"-->
+<body class="wtoogle" onload="ini();" style="width: 11px;">
+    <table width="100%" style="height: 100%;" border="0" cellspacing="0">
+        <tbody>
+            <tr>
+                <td>
+                    <a href="javascript:MHideLeft();" class="wtoogle" id="menuSwitch">&#9668;</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

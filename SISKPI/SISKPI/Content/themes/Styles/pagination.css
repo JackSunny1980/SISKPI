@@ -1,0 +1,40 @@
+﻿/**分页 begin**/
+.pagination
+{
+    margin-top:1px;
+    border: solid 1px #ccc;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe', endColorstr='#e6e6e6');
+    background:url(/Content/themes/Images/column-header-bg.png) repeat-x;
+    background-repeat: repeat-x;
+    height: 27px;
+    width: auto;
+}
+.pagination-btn-separator
+{
+    float: left;
+    height: 24px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #fff;
+    margin: 1px;
+}
+.first
+{
+    background: url('/Content/themes/images/first.gif') no-repeat 0px 2px;
+    cursor: pointer;
+}
+.prev
+{
+    background: url('/Content/themes/images/prev.gif') no-repeat 0px 2px;
+    cursor: pointer;
+}
+.next
+{
+    background: url('/Content/themes/images/next.gif') no-repeat 0px 2px;
+    cursor: pointer;
+}
+.last
+{
+    background: url('/Content/themes/images/last.gif') no-repeat 0px 2px;
+    cursor: pointer;
+}
+/**分页 end**/

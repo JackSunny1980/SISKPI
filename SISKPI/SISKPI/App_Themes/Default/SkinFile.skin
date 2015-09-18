@@ -1,0 +1,22 @@
+<asp:Button runat="server" cssClass="buttonstyle" />
+<asp:LinkButton runat="server" cssClass="linkbuttonstyle" />
+<asp:TextBox runat="server" cssClass="textbox" />
+
+<asp:WebPartZone runat="server" PartChromeStyle-BorderColor="#75CEA2" PartTitleStyle-CssClass="wp_Header"
+ HeaderStyle-HorizontalAlign="Center"  HeaderStyle-CssClass="t3" >
+    <MenuPopupStyle Font-Names="tahoma,verdana,sans-serif" Font-Size="11px" BorderStyle="solid" CellPadding="2" BorderColor="#d9d9d9" BorderWidth="1px" />
+    <CloseVerb Visible="false" />
+</asp:WebPartZone>
+ 
+<asp:GridView cssClass="BoderTable"  CellPadding="3" CellSpacing="0" runat="server"  PageSize="20">
+    <HeaderStyle BackColor="#416833"  ForeColor="White" Font-Names="Î¢ÈíÑÅºÚ"  HorizontalAlign="Center"  />
+    <AlternatingRowStyle BackColor="#eeeeee" HorizontalAlign="left"  />
+    <FooterStyle BackColor="#4876ca" Font-Bold="True"  ForeColor="White"   />
+    <RowStyle   HorizontalAlign="left"  />
+    <EditRowStyle BackColor="#eeeeee" />
+    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+    <PagerStyle CssClass="dg_page"  />
+</asp:GridView>
+
+<asp:Label SkinID="SpecLabel" runat="server" cssClass="label" />
+<asp:Label SkinID="TitalLabel" runat="server" cssClass="TitleLabel" />

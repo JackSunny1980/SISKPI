@@ -1,0 +1,29 @@
+﻿.MainDiv
+{
+	width:1000px; 
+	margin:0px auto;
+}
+.TitleHeard
+{
+	font-weight:bold;
+	margin:0px 0px 0px 0px;
+	background-image:url(../../imgs/Bg.png);
+	height:23px;
+	color:Black;
+	padding:6px 0px 0px 10px;
+	clear:both;
+}
+
+.Button
+{
+	text-align:center;
+	background: url('../../imgs/Button.png') repeat;
+	border:0;
+	height:31px;
+	width:95px;
+}
+
+.Title
+{
+	font-size:14px;
+}

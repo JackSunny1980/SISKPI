@@ -1,0 +1,156 @@
+﻿body{font-size:12px;line-height:160%;margin:0px; background-color:White;}
+.table{border-spacing:0px;width:100%;padding:0px;}
+.tableinner{border-spacing:0px;width:95%;padding:0px;}
+.table_td{border-right:1px solid #6593cf;border-bottom:1px solid #6593cf;border-left:1px solid #6593cf;}
+.table_tr{background-color:white;}
+td{padding:0px}
+
+
+
+/* 网页标题 样式*/
+.title{color: #6591CE; font-weight: bold; font-size: 20pt; vertical-align:bottom;font-family: 隶书,Verdana,Arial,Helvetica,sans-serif;}
+
+/* 登录用的帐户 和 密码框 样式 */
+.username { BACKGROUND-POSITION: 1px 1px; PADDING-LEFT: 20px; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(pic/username.gif); BACKGROUND-REPEAT: no-repeat; HEIGHT: 20px }
+.password { BACKGROUND-POSITION: 1px 1px; PADDING-LEFT: 20px; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(pic/password.gif); BACKGROUND-REPEAT: no-repeat; HEIGHT: 20px }
+
+/* 立体感按钮样式 */
+
+.btn {BORDER-RIGHT: #7b9ebd 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #7b9ebd 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde); BORDER-LEFT: #7b9ebd 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #7b9ebd 1px solid;}
+
+.btn_mouseout {
+ border-right: #2c59aa 1px solid; padding-right: 2px; border-top: #2c59aa 1px solid; padding-left: 2px; font-size: 12px; filter: progid:dximagetransform.microsoft.gradient(gradienttype=0, startcolorstr=#ffffff, endcolorstr=#c3daf5); border-left: #2c59aa 1px solid; cursor: hand; color: black; padding-top: 2px; border-bottom: #2c59aa 1px solid
+}
+.btn_mouseover {
+ border-right: #2c59aa 1px solid; padding-right: 2px; border-top: #2c59aa 1px solid; padding-left: 2px; font-size: 12px; filter: progid:dximagetransform.microsoft.gradient(gradienttype=0, startcolorstr=#ffffff, endcolorstr=#d7e7fa); border-left: #2c59aa 1px solid; cursor: hand; color: black; padding-top: 2px; border-bottom: #2c59aa 1px solid
+}
+.btn_mousedown {
+ border-right: #ffe400 1px solid; padding-right: 2px; border-top: #ffe400 1px solid; padding-left: 2px; font-size: 12px; filter: progid:dximagetransform.microsoft.gradient(gradienttype=0, startcolorstr=#ffffff, endcolorstr=#c3daf5); border-left: #ffe400 1px solid; cursor: hand; color: black; padding-top: 2px; border-bottom: #ffe400 1px solid
+}
+.btn_mouseup {
+ border-right: #2c59aa 1px solid; padding-right: 2px; border-top: #2c59aa 1px solid; padding-left: 2px; font-size: 12px; filter: progid:dximagetransform.microsoft.gradient(gradienttype=0, startcolorstr=#ffffff, endcolorstr=#c3daf5); border-left: #2c59aa 1px solid; cursor: hand; color: black; padding-top: 2px; border-bottom: #2c59aa 1px solid
+}
+
+/*  line chart */
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color: #f0fff0;    
+    -fx-font-family: Tahoma;
+    -fx-font-size: 1.2em;
+    -fx-text-fill: #4682b4;    
+}
+.chart-content {
+    -fx-padding: 30px;
+}
+
+/* Setting Colors of a Pie Chart */
+
+.default-color0.chart-pie { -fx-pie-color: #ffd700; }
+.default-color1.chart-pie { -fx-pie-color: #ffa500; }
+.default-color2.chart-pie { -fx-pie-color: #860061; }
+.default-color3.chart-pie { -fx-pie-color: #adff2f; }
+.default-color4.chart-pie { -fx-pie-color: #ff5700; }
+ 
+.chart-pie-label-line {
+    -fx-stroke: #8b4513;
+    -fx-fill: #8b4513;
+}
+ 
+.chart-pie-label {
+    -fx-fill: #8b4513;
+    -fx-font-size: 1em;
+} 
+.chart-legend {
+   -fx-background-color:  #fafad2;
+   -fx-stroke: #daa520;
+}
+
+#tls{border-left:1px solid #6593cf;border-top:1px solid #6593cf;margin-bottom:5px;}
+#tls th{font-size:14px;background:url(images/path_bg.png) repeat-x;line-height:24px;}
+#tls th,#tls td{border-right:1px solid #6593cf;border-bottom:1px solid #6593cf; border-left:1px solid #6593cf;}
+#tls td.textc{padding-left:5px;}
+#tls tr{background-color:white}
+a.edit,a.del{padding-left:15px;margin:0px 3px;color:#193541}
+a.edit{background:url(images/edit.gif) no-repeat left center;}
+a.del{background:url(images/del.gif) no-repeat left center;}
+
+
+
+/* GridView 样式   */
+.GridViewStyle
+{   
+    border-right: 2px solid #A7A6AA;
+    border-bottom: 2px solid #A7A6AA;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    padding: 4px;
+}
+
+.GridViewStyle a
+{
+    color:White;
+    text-decoration:none;
+}
+
+.GridViewHeaderStyle th
+{
+    border-left: 1px solid #6591CE;
+    border-right: 1px solid #6591CE;
+}
+
+.GridViewHeaderStyle
+{
+    background-color: #6591CE;
+    font-weight: bold;
+    color: White;
+}
+
+.GridViewFooterStyle
+{
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: White;
+}
+
+.GridViewRowStyle
+{
+    background-color: #F7F6F3;
+    color: #333333;
+}
+
+.GridViewAlternatingRowStyle
+{
+    background-color: #FFFFFF;
+    color: #284775;
+}
+
+.GridViewRowStyle td, .GridViewAlternatingRowStyle td
+{
+    border: 1px solid #EBE9ED;
+}
+
+.GridViewSelectedRowStyle
+{
+    background-color: #E2DED6;
+    font-weight: bold;
+    color: #333333;
+}
+
+.GridViewPagerStyle
+{
+    background-color: #5D7B9D;
+    color: #FFFFFF;
+}
+
+.GridViewPagerStyle table /* to center the paging links*/
+{
+    margin: 0 auto 0 auto;
+}
+
+.GridViewButtonStyle
+{
+    BORDER: #D87E26 0px solid;
+    CURSOR: hand; 
+    COLOR:Blue;
+    background:none;
+}

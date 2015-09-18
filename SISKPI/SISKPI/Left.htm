@@ -1,0 +1,70 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>KPI</title>
+    <style type="text/css">
+        body
+        {
+            font-size: 12px;
+            line-height: 120%;
+            margin: 0px;
+            padding: 0px;
+            color: Black;
+        }
+    </style>
+    <script type="text/javascript">
+        function bindFrame(url) {
+            parent.frames[2].window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="width: 180px; background-color: White; margin: 0px auto; background-color: #f4f4f4;">
+        <div class="TitleLabel" style="margin: 2px 0px 2px 20px;">
+            班次管理</div>
+        <div style="margin: 0px 0px; background-color: #f4f4f4; width: 100%;">
+            <ul>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_PositionConfig.aspx');">岗位配置</a></span></li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_PersonConfig.aspx');">人员配置</a></span></li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_PeriodConfig.aspx');">班配置</a></span></li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_ShiftConfig.aspx');">值配置</a></span></li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_TeamConfig.aspx');">班组配置</a></span></li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_WorkConfig.aspx');">倒班配置</a></span></li>
+            </ul>
+        </div>
+    </div>
+    <div style="width: 180px; background-color: White; margin: 0px auto; background-color: #f4f4f4;">
+        <div class="TitleLabel" style="margin: 2px 0px 2px 20px;">
+            指标管理</div>
+        <div style="margin: 0px 0px; background-color: #f4f4f4; width: 100%;">
+            <ul>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_Config.aspx');">机组配置</a></span>
+                </li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_SeqConfig.aspx');">设备配置</a></span>
+                </li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_KpiConfig.aspx');">指标配置</a></span>
+                </li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_EngunitConfig.aspx');">单位配置</a></span></li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_CycleConfig.aspx');">周期配置</a></span></li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_ConstantConfig.aspx');">常量配置</a></span></li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_RealTagConfig.aspx');">实时标签配置</a></span></li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_ECTagConfig.aspx');">实时指标配置</a></span></li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_SATagConfig.aspx');">安全指标配置</a></span></li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_Calc.htm');">函数表达式</a></span></li>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_SubECTagTest.aspx');">表达式验证</a></span></li>
+            </ul>
+        </div>
+    </div>
+    <div style="width: 180px; background-color: White; margin: 0px auto; background-color: #f4f4f4;">
+        <div class="TitleLabel" style="margin: 2px 0px 2px 20px;">
+            报表管理</div>
+        <div style="margin: 0px 0px; background-color: #f4f4f4; width: 100%;">
+            <ul>
+                <li><span><a href="#" onclick="bindFrame('KPI\\KPI_RDLCConfig.aspx');">报表自定义</a></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

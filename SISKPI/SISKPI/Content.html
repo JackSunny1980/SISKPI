@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>首页</title>
+    <link href="Content/themes/Styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="Content/themes/Styles/accordion.css" rel="stylesheet" type="text/css" />
+    <script src="ECharts/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="ECharts/echarts/echarts.js" type="text/javascript"></script>
+    <script src="ECharts/MyECharts.js" type="text/javascript"></script>
+    <script src="ECharts/WapCharts.js" type="text/javascript"></script>
+    <script src="ECharts/GetCharts.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(
+               function () {
+                   GetHorBars("MainContent/Main.ashx", "barmts", "MTS");
+                   GetBars("MainContent/Main.ashx", "barmdt", "MDT");
+                   GetPie("MainContent/Main.ashx", "pieyts", "统计", "YTS");
+                   GetPie("MainContent/Main.ashx", "pieydt", "统计", "YDT");
+               });
+    </script>
+</head>
+<body>
+<div  style="overflow-x:auto; padding:3px;">
+    <div style="overflow:hidden; width:100%;white-space:nowrap;min-width:1160px;margin-bottom:4px">
+        <div class="box" style="float:left;width:49.5%; min-width:565px">
+            <div class="box-title">
+                <div style="float: left">
+                    <img src="Content/Themes/Images/32/chart_bar.png" alt="" width="20" height="20" />
+                    各值当月得分统计 </div>
+            </div>
+            <div class="box-content" style="height: 100%;width:100%">
+                <div id="barmts" style="height: 250px;min-width:560px; width:60%; margin:0 auto"></div>
+            </div>
+        </div>
+        <div style="width:4px;height:294px; float:left;"></div>
+        <div  class="box"  style="float:left;width:49.5%; min-width:565px">
+            <div class="box-title">
+                <div style="float: left">
+                    <img src="Content/themes/Images/32/chart_bar.png" alt="" width="20" height="20" />
+                    各值当月监盘时间统计 </div>
+            </div>
+            <div class="box-content" style="height: 100%; width:100%">
+                <div id="barmdt" style="height: 250px;min-width:560px; width:60%; margin:0 auto"></div>
+            </div>
+        </div>
+    </div>
+    <div style="overflow:hidden; width:100%;white-space:nowrap;min-width:1160px;">
+        <div class="box" style="float:left;width:49.5%; min-width:565px">
+            <div class="box-title">
+                <div style="float: left">
+                    <img src="Content/themes/Images/32/chart_pie.png" alt="" width="20" height="20" />
+                    各值当年得分统计 </div>
+            </div>
+            <div class="box-content" style="height: 100%; width:100%;">
+                <div id="pieyts" style="height: 250px;min-width:560px; width:60%; margin:0 auto"></div>
+            </div>
+        </div>
+        <div style="width:4px;height:294px; float:left;"></div>
+        <div  class="box" style="float:left;width:49.5%; min-width:565px">
+            <div class="box-title">
+                <div style="float: left">
+                    <img src="Content/themes/Images/32/chart_pie.png" alt="" width="20" height="20" />
+                    各值当年监盘时间统计 </div>
+            </div>
+            <div class="box-content" style="height: 100%; width: 100%;">
+                <div id="pieydt" style="height:250px;min-width:560px; width:60%; margin:0 auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

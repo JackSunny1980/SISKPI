@@ -1,0 +1,4892 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        "pSpaceCTL.NET"
+    </assembly>
+    <members>
+        <member name="M:pSpaceCTLNET.DataIO.ReadProcessed(pSpaceCTLNET.DbConnector,pSpaceCTLNET.TagVector,System.DateTime,System.DateTime,System.TimeSpan,&lt;unknown type&gt;,pSpaceCTLNET.HisDataSet)">
+            <summary>
+	获得指定取样时间间隔的批量测点历史趋势数据集合。
+</summary>
+            <param name="conn">指向连接器的指针，如果为NULL，则函数引发ArgumentNullException异常。</param>
+            <param name="tagvector">指定的需要删除数据的测点集合</param>
+            <param name="dataset">函数将把查询的数据填充到该历史数据集中，该函数不会清空dataset中存在的值。</param>
+            <param name="StartTime">查询开始的时间。</param>
+            <param name="EndTime">查询结束的时间，时间区间为[StartTime, EndTime)。</param>
+            <param name="Aggregate">查询的历史趋势统计方法，如插值、最大值、最小值、个数和平均值等。</param>
+            <param name="ResampleInterval">取样时间间隔。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+EventDbException
+		+TagDbException
+`		+HisDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DataIO.ReadAtTime(pSpaceCTLNET.DbConnector,pSpaceCTLNET.TagVector,System.DateTime[],pSpaceCTLNET.HisDataSet)">
+            <summary>
+	获得指定时刻列表的批量测点插值集合。
+</summary>
+            <param name="conn">指向连接器的指针，如果为NULL，则函数引发ArgumentNullException异常。</param>
+            <param name="tagvector">指定的需要删除数据的测点集合。</param>
+            <param name="dataset">函数将把查询的数据填充到该历史数据集中，该函数不会清空dataset中存在的值。</param>
+            <param name="readtimes">需要获得历史数据的时间戳列表。每一个tagvector的元素对应相同的时间戳列表。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+EventDbException
+		+TagDbException
+`		+HisDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DataIO.ReadRaw(pSpaceCTLNET.DbConnector,pSpaceCTLNET.TagVector,System.DateTime,System.DateTime,pSpaceCTLNET.HisDataSet,System.UInt32,System.Boolean)">
+            <summary>
+	查询一批测点一段时间的原始历史数据。
+</summary>
+            <param name="conn">指向连接器的指针，如果为NULL，则函数引发ArgumentNullException异常。</param>
+            <param name="tagvector">指定的需要删除数据的测点集合</param>
+            <param name="dataset">函数将把查询的数据填充到该历史数据集中，该函数不会清空dataset中存在的值。</param>
+            <param name="StartTime">查询开始的时间。</param>
+            <param name="EndTime">查询结束的时间，时间区间为[StartTime, EndTime)。</param>
+            <param name="nMaxNumOfReturnValues">返回的最大查询结果个数，初始设置为0，表示不限制。</param>
+            <param name="bBounds">是否查找边界，缺省为true。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+EventDbException
+		+TagDbException
+`		+HisDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DataIO.DeleteAtTime(pSpaceCTLNET.DbConnector,pSpaceCTLNET.TagVector,System.DateTime)">
+            <summary>
+	删除指定时刻的批量测点原始值集合。
+</summary>
+            <param name="conn">指向连接器的指针，如果为NULL，则函数引发ArgumentNullException异常。</param>
+            <param name="tagvector">指定的需要删除数据的测点集合。</param>
+            <param name="DelTime">需要删除的时刻。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+EventDbException
+		+TagDbException
+`		+HisDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DataIO.DeleteRaw(pSpaceCTLNET.DbConnector,pSpaceCTLNET.TagVector,System.DateTime,System.DateTime)">
+            <summary>
+	删除指定时间区间内的原始值集合，区间为左闭右开区间[StartTime, EndTime)。
+</summary>
+            <param name="conn">指向连接器的指针，如果为NULL，则函数引发ArgumentNullException异常。</param>
+            <param name="tagvector">指定的需要删除数据的测点集合。</param>
+            <param name="StartTime">开始时间。</param>
+            <param name="EndTime">结束时间。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+EventDbException
+		+TagDbException
+`		+HisDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DataIO.Replace(pSpaceCTLNET.DbConnector,pSpaceCTLNET.RealDataSet,&lt;unknown type&gt;)">
+            <summary>
+	用指定的历史数据集批量替换历史库中已经存在的历史数据集。
+	注意：
+	如果dataset[i]为NULL或者的测点ID无效该函数都会当做PSTAGID_UNUSED处理。
+	使用者需要确保conn已经连接。
+	A) 如果替换的时间戳存在已有的历史值则替换之；
+	B) 如果替换的时间戳不存在已有的历史值则返回错误。
+</summary>
+            <param name="conn">指向连接器的指针，如果为NULL，则函数引发ArgumentNullException异常。</param>
+            <param name="dataset">用于向服务器写入的历史数据集对象的引用，如果dataset的size为0，则函数直接返回，但并不报告错误；如果dataset中存在无效的测点或测点指针，则函数会忽略该测点，但并不报告错误。</param>
+            <param name="field">指示需要写入的实时数据域（Data|Time|Quality），其中DataField::Value和DataField::Time是必填域。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+EventDbException
+		+TagDbException
+`		+HisDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DataIO.InsertReplace(pSpaceCTLNET.DbConnector,pSpaceCTLNET.RealDataSet,&lt;unknown type&gt;)">
+            <summary>
+	将历史数据集批量插入入相应测点列表中。
+	注意：
+	如果dataset[i]为NULL或者测点ID无效该函数都会当做PSTAGID_UNUSED处理。
+	使用者需要确保conn已经连接。
+	A) 如果历史数据集dataset中的数据的时间戳晚于测点中最后写入的历史数据的时间戳，函数将直接将值插入到该测点历史数据集的末尾；
+	B) 如果历史数据集dataset中的数据的时间戳早于测点中最后写入的历史数据的时间戳，且该时刻没有已存的历史值，则插入；
+	C) 如果历史数据集dataset中的数据的时间戳等于测点中最后写入的历史数据的时间戳，但该时候存在已有的历史值，则用新值替换已有值；
+</summary>
+            <param name="conn">指向连接器的指针，如果为NULL，则函数引发ArgumentNullException异常。</param>
+            <param name="dataset">用于向服务器写入的历史数据集对象的引用，如果dataset的size为0，则函数直接返回，但并不报告错误；如果dataset中存在无效的测点或测点指针，则函数会忽略该测点，但并不报告错误。</param>
+            <param name="field">指示需要写入的实时数据域（Data|Time|Quality），其中DataField::Value和DataField::Time是必填域。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+EventDbException
+		+TagDbException
+`		+HisDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DataIO.Insert(pSpaceCTLNET.DbConnector,pSpaceCTLNET.RealDataSet,&lt;unknown type&gt;)">
+            <summary>
+	将历史数据集批量插入入相应测点列表中。
+	注意：
+	如果dataset[i]为NULL或者的测点ID无效该函数都会当做PSTAGID_UNUSED处理。
+	使用者需要确保conn已经连接。
+	A) 如果历史数据集dataset中的数据的时间戳晚于测点中最后写入的历史数据的时间戳，函数将直接将值插入到该测点历史数据集的末尾；
+	B) 如果历史数据集dataset中的数据的时间戳早于测点中最后写入的历史数据的时间戳，且该时刻没有已存的历史值，则插入；
+	C) 如果历史数据集dataset中的数据的时间戳等于测点中最后写入的历史数据的时间戳，但该时候存在已有的历史值，则返回错误；
+</summary>
+            <param name="conn">指向连接器的指针，如果为NULL，则函数引发ArgumentNullException异常。</param>
+            <param name="dataset">用于向服务器写入的历史数据集对象的引用，如果dataset的size为0，则函数直接返回，但并不报告错误；如果dataset中存在无效的测点或测点指针，则函数会忽略该测点，但并不报告错误。</param>
+            <param name="field">指示需要写入的实时数据域（Data|Time|Quality），其中DataField::Value和DataField::Time是必填域。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+EventDbException
+		+TagDbException
+`		+HisDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DataIO.Append(pSpaceCTLNET.DbConnector,pSpaceCTLNET.RealDataSet,&lt;unknown type&gt;)">
+            <summary>
+	将实时值数据集批量追加写入相应测点列表中。
+	注意：
+	如果dataset[i]为NULL或者的测点ID无效该函数都会当做PSTAGID_UNUSED处理。
+	使用者需要确保conn已经连接。
+</summary>
+            <param name="conn">指向连接器的指针，如果为NULL，则函数引发ArgumentNullException异常。</param>
+            <param name="dataset">用于向服务器写入的实时数据集对象的引用，如果dataset的size为0，则函数直接返回，但并不报告错误；如果dataset中存在无效的测点或测点指针，则函数会忽略该测点，但并不报告错误。</param>
+            <param name="field">指示需要写入的实时数据域（Data|Time|Quality），其中DataField::Value是必填域，否则返回参数错误。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+EventDbException
+		+TagDbException
+`		+HisDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DataIO.Snapshot(pSpaceCTLNET.DbConnector,pSpaceCTLNET.ITagElement)">
+            <summary>
+	根据测点读取当前实时值数据集。
+	注意：
+	使用者需要确保conn已经连接。
+</summary>
+            <param name="conn">指向连接器的指针，如果为NULL，则函数引发ArgumentNullException异常。</param>
+            <param name="tag">需要获得实时值快照的测点。</param>
+            <returns>
+	如果成功或部分成功，函数返回RealHisData对象。如果测点并不存在，则返回null。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+EventDbException
+		+TagDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DataIO.Snapshot(pSpaceCTLNET.DbConnector,pSpaceCTLNET.TagVector,pSpaceCTLNET.RealDataSet)">
+            <summary>
+	根据测点列表读取当前实时值数据集。
+	注意：
+	如果tagvector[i]为空，或者tagvector[i]的测点ID无效该函数都会当做PSTAGID_UNUSED处理。
+	使用者需要确保conn已经连接。
+</summary>
+            <param name="conn">指向连接器的指针，如果为NULL，则函数引发ArgumentNullException异常。</param>
+            <param name="tagvector">需要获得实时值快照的测点列表。</param>
+            <param name="dataset">函数将把查询的数据填充到该数据集中，该函数不会清空dataset中存在的值。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+EventDbException
+		+TagDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.StringTagElement.Construct(pSpaceCTLNET.TagTree,System.String)">
+            <summary>
+根据测点名构造测点。
+</summary>
+            <param name="tagtree">测点树对象，如果为null将引发ArgumentNullException异常。</param>
+            <param name="tagname">测点名称，如果为null将引发ArgumentNullException异常。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.StringTagElement.#ctor">
+            <summary>
+缺省构造函数。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.StringTagElement">
+            <summary>
+字符串点类型测点类。
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbInfo.ServerStatus">
+            <summary>
+获得服务器当前状态
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbInfo.SecurityArea">
+            <summary>
+获得安全区
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbInfo.CurrentPermission">
+            <summary>
+获得当前用户的许可权限
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbInfo.SubVersion">
+            <summary>
+获得服务器子版本号
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbInfo.Version">
+            <summary>
+获得服务器版本号
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbInfo.UserName">
+            <summary>
+获得当前连接的用户名
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbInfo.ServerName">
+            <summary>
+获得服务器名称
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbInfo.#ctor">
+            <summary>
+构造函数，创建数据库相关信息对象。
+</summary>
+        </member>
+        <member name="E:pSpaceCTLNET.TagSubscriber.TagChanged">
+            <summary>
+测点变更事件。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagSubscriber.Close">
+            <summary>
+关闭订阅器。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagSubscriber.RemoveAll">
+            <summary>
+从订阅器中移除所有订阅。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagSubscriber.Remove(pSpaceCTLNET.TagVector)">
+            <summary>
+  从订阅器中移除一批订阅点集合。
+</summary>
+            <param name="tagvector">需要取消订阅的测点列表。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+	ArgumentNullException
+	InvalidOperationException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagNotifyDbException
+		+TagDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagSubscriber.Add(pSpaceCTLNET.TagVector)">
+            <summary>
+  向订阅器中加入新的订阅点集合。如果tagvector的大小为0则直接返回但并不报错。
+</summary>
+            <param name="tagvector">需要订阅的测点列表。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+	ArgumentNullException
+	InvalidOperationException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagNotifyDbException
+		+TagDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagSubscriber.Create(pSpaceCTLNET.DbConnector,pSpaceCTLNET.TagVector)">
+            <summary>
+ 创建订阅器。
+</summary>
+            <param name="conn">数据库连接对象。</param>
+            <param name="tagvector">需要订阅的测点列表。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+	ArgumentNullException
+	InvalidOperationException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagNotifyDbException
+		+TagDbException
+</returns>
+        </member>
+        <member name="T:pSpaceCTLNET.TagSubscriber">
+            <summary>
+测点变更订阅器类。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.TagChangedEventHandler">
+            <summary>
+测点变更事件委托。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.AnalogTagElement.Construct(pSpaceCTLNET.TagTree,System.String)">
+            <summary>
+根据测点名构造测点。
+</summary>
+            <param name="tagtree">测点树对象，如果为null将引发ArgumentNullException异常。</param>
+            <param name="tagname">测点名称，如果为null将引发ArgumentNullException异常。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.AnalogTagElement.#ctor">
+            <summary>
+缺省构造函数。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.Common.StopAPI">
+            <summary>
+停止API系统，在结束对该组件的调用后，应该调用该函数释放有关资源。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.Common.StartAPI">
+            <summary>
+初始化API系统，在调用该组件前必须该函数初始化相关系统参数。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.Common">
+            <summary>
+RTDB数据库通用接口定义类。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.EventNotifyDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.EventNotifyDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.EventNotifyDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.EventNotifyDbException.#ctor">
+            <summary>
+构造函数，初始化新实例。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.RealNotifyDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化类的新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.RealNotifyDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化类的新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.RealNotifyDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化类的新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.RealNotifyDbException.#ctor">
+            <summary>
+构造函数，初始化类的新实例。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.ConnectDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化 ConnectDbException 类的新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.ConnectDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化 ConnectDbException 类的新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.ConnectDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化 ConnectDbException 类的新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.ConnectDbException.#ctor">
+            <summary>
+构造函数，初始化 ConnectDbException 类的新实例。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.CommonDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化 CommonDbException 类的新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.CommonDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化 CommonDbException 类的新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.CommonDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化 CommonDbException 类的新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.CommonDbException.#ctor">
+            <summary>
+构造函数，初始化 CommonDbException 类的新实例。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.GetUserGroups(pSpaceCTLNET.UserInfo)">
+            <summary>
+	获得指定用户所隶属的用户组列表。
+</summary>
+            <param name="user">
+	指定的用户信息，如果为Null将引发ArgumentNullException异常。
+</param>
+            <returns>
+	如果成功返回用户组信息集合对象；如果指定的用户ID不存在则返回null，但不会引发异常。
+异常与错误：
+	OutOfMemoryException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.GetUserGroups(System.UInt16)">
+            <summary>
+	获得指定用户所隶属的用户组列表。
+</summary>
+            <param name="uUserId">
+	指定的用户ID。
+</param>
+            <returns>
+	如果成功返回用户组信息集合对象；如果指定的用户ID不存在则返回null，但不会引发异常。
+异常与错误：
+	OutOfMemoryException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.GetGroupMembers(pSpaceCTLNET.GroupInfo)">
+            <summary>
+	获得指定的用户组中所有的组员信息。
+</summary>
+            <param name="group">
+	指定的用户组，如果为Null将引发ArgumentNullException异常。
+</param>
+            <returns>
+	如果成功返回用户信息集合对象；如果指定的用户组不存在则返回null，但不会引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.GetGroupMembers(System.UInt16)">
+            <summary>
+	获得指定ID的用户组中所有的组员信息。
+</summary>
+            <param name="uGroupId">
+	指定的用户组ID。
+</param>
+            <returns>
+	如果成功返回用户信息集合对象；如果指定的用户组ID不存在则返回null，但不会引发异常。
+异常与错误：
+	OutOfMemoryException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.RemoveUserFromGroup(System.UInt16,System.UInt16)">
+            <summary>
+	将指定用户ID的用户从指定ID的用户组中删除。
+</summary>
+            <param name="uGroupId">指定的用户组ID。</param>
+            <param name="uUserId">指定的用户ID。</param>
+            <returns>
+	如果成功返回0，如果指定的用户并不存在于指定的用户组中则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.RemoveUserFromGroup(pSpaceCTLNET.GroupInfo,pSpaceCTLNET.UserInfo)">
+            <summary>
+	将指定的用户从指定的用户组中删除。
+</summary>
+            <param name="group">指定的用户组信息，如果为Null将引发ArgumentNullException异常。</param>
+            <param name="user">指定的用户信息，如果为Null将引发ArgumentNullException异常。</param>
+            <returns>
+	如果成功返回0，如果指定的用户并不存在于指定的用户组中则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.AppendUserToGroup(System.UInt16,System.UInt16)">
+            <summary>
+	将指定用户ID的用户添加到指定ID的用户组中。
+</summary>
+            <param name="uGroupId">指定的用户组ID。</param>
+            <param name="uUserId">指定的用户ID。</param>
+            <returns>
+	如果成功返回0，如果指定的用户已经存在于指定的用户组中则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.AppendUserToGroup(pSpaceCTLNET.GroupInfo,pSpaceCTLNET.UserInfo)">
+            <summary>
+	将指定用户添加到指定的用户组中。
+</summary>
+            <param name="group">指定的用户组信息，如果为Null将引发ArgumentNullException异常。</param>
+            <param name="user">指定的用户信息，如果为Null将引发ArgumentNullException异常。</param>
+            <returns>
+	如果成功返回0，如果指定的用户已经存在于指定的用户组中则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.GetGroupInfo(System.String)">
+            <summary>
+	根据用户组名获得用户信息。
+	如果指定的用户组名不存在则返回null。
+</summary>
+            <param name="szGroupName">
+	指定的用户组名，如果为Null将引发ArgumentNullException异常。
+</param>
+            <returns>
+	如果成功返回用户组信息对象，如果指定的用户组并不存在则返回null，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.GetGroupInfo(System.UInt16)">
+            <summary>
+	根据用户组ID获得用户信息。
+	如果指定的用户组ID不存在则返回null。
+</summary>
+            <param name="nGroupId">
+	指定的用户组ID。
+</param>
+            <returns>
+	如果成功返回用户组信息对象，如果指定的用户组并不存在则返回null，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.SetGroupInfo(pSpaceCTLNET.GroupInfo)">
+            <summary>
+	设置用户组信息。
+</summary>
+            <param name="group">
+	指定设置的用户组信息对象，如果为Null将引发ArgumentNullException异常。
+</param>
+            <returns>
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.GetUserInfo(System.String)">
+            <summary>
+	根据用户名获得用户信息。
+	如果指定的用户名不存在则返回null。
+</summary>
+            <param name="szUserName">
+	指定的用户名，如果为Null将引发ArgumentNullException异常。
+</param>
+            <returns>
+	如果成功返回用户信息对象，如果指定的用户并不存在则返回null，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.GetUserInfo(System.UInt16)">
+            <summary>
+	根据用户ID获得用户信息。
+	如果指定的用户ID不存在则返回null。
+</summary>
+            <param name="nUserId">
+	指定的用户ID。
+</param>
+            <returns>
+	如果成功返回用户信息对象，如果指定的用户并不存在则返回null，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.SetUserInfo(pSpaceCTLNET.UserInfo)">
+            <summary>
+	设置用户信息。
+</summary>
+            <param name="user">
+	 指定设置的用户信息对象，如果为Null将引发ArgumentNullException异常。
+</param>
+            <returns>
+	如果成功返回0，如果设置的用户并不存在则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.RemoveGroup(pSpaceCTLNET.GroupInfo)">
+            <summary>
+	从服务器中删除用户组。
+</summary>
+            <param name="oldGroup">
+	 指定删除的用户组信息对象，如果为Null将引发ArgumentNullException异常。
+</param>
+            <returns>
+	如果成功返回0，如果删除的用户组并不存在则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.RemoveUser(pSpaceCTLNET.UserInfo)">
+            <summary>
+	从服务器中删除用户。
+</summary>
+            <param>
+	oldUser - 指定删除的用户信息对象。
+</param>
+            <returns>
+	如果成功返回0，如果删除的用户并不存在则返回-1，但并不引发异常。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.AddGroup(pSpaceCTLNET.GroupInfo)">
+            <summary>
+	向服务器添加用户组。
+	注意：该函数如果成功会填充newGroup的GroupId属性。
+</summary>
+            <param name="newGroup">
+	 新的用户组信息对象，如果为Null将引发ArgumentNullException异常。
+</param>
+            <returns>
+	如果成功返回0，如果添加的用户组已经存在则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.AddUser(pSpaceCTLNET.UserInfo)">
+            <summary>
+	向服务器添加用户。
+	注意：该函数如果成功会填充newUser的UserId属性。
+</summary>
+            <param name="newUser">
+	新的用户信息对象，如果为Null将引发ArgumentNullException异常。
+</param>
+            <returns>
+	如果成功返回0，如果添加的用户已经存在则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.GetGroupList">
+            <summary>
+	获得用户组列表。
+</summary>
+            <returns>
+	如果成功返回GroupInfos 对象，否则会触发相应引发异常。
+异常与错误：
+	OutOfMemoryException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.GetUserList">
+            <summary>
+	获得用户列表。
+</summary>
+            <returns>
+	如果成功返回UserInfos 对象，否则会触发相应引发异常。
+异常与错误：
+	OutOfMemoryException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.GetGroupCount">
+            <summary>
+	获得服务器所有的用户组数量。
+</summary>
+            <returns>
+	如果成功返回用户组数量，否则会触发相应引发异常。
+异常与错误：
+	OutOfMemoryException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.GetUserCount">
+            <summary>
+	获得服务器所有的用户数量。
+</summary>
+            <returns>
+	如果成功返回用户数量，否则会触发相应引发异常。
+异常与错误：
+	OutOfMemoryException
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+UserDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.#ctor(pSpaceCTLNET.DbConnector)">
+            <summary>
+根据数据库连接对象构造用户（组）管理实例。
+</summary>
+            <param name="conn">数据库连接对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.UserManager.#ctor">
+            <summary>
+构造函数。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.AuthorityDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化 AuthorityDbException 类的新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.AuthorityDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化 AuthorityDbException 类的新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.AuthorityDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化 AuthorityDbException 类的新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.AuthorityDbException.#ctor">
+            <summary>
+构造函数，初始化 AuthorityDbException 类的新实例。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNotifyDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNotifyDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNotifyDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNotifyDbException.#ctor">
+            <summary>
+构造函数，初始化新实例。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.RealDataCallbackDelegate">
+            <summary>
+实时数据变更回调委托类定义。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.TagCallbackDelegate">
+            <summary>
+测点变更回调委托类定义。
+</summary>
+        </member>
+        <member name="E:pSpaceCTLNET.RealSubscriber.RealDataChanged">
+            <summary>
+实时值变更事件
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.RealSubscriber.Close">
+            <summary>
+关闭订阅器。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.RealSubscriber.RemoveAll">
+            <summary>
+从订阅器中移除所有订阅。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.RealSubscriber.Remove(pSpaceCTLNET.TagVector)">
+            <summary />
+            <param name="tagvector">需要取消订阅的测点列表。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+	ArgumentNullException
+	InvalidOperationException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+RealNotifyDbException
+		+TagDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.RealSubscriber.Add(pSpaceCTLNET.TagVector)">
+            <summary />
+            <param name="tagvector">需要订阅的测点列表。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+	ArgumentNullException
+	InvalidOperationException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+RealNotifyDbException
+		+TagDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.RealSubscriber.CreateAndRead(pSpaceCTLNET.DbConnector,pSpaceCTLNET.TagVector,pSpaceCTLNET.RealDataSet)">
+            <summary />
+            <param name="conn">数据库连接对象，如果为null将触发ArgumentNullException异常。</param>
+            <param name="tagvector">需要订阅的测点列表，如果为null将触发ArgumentNullException异常。如果tagvector的大小为0，将引发InvalidOperationException异常。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+	ArgumentNullException
+	InvalidOperationException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+RealNotifyDbException
+		+TagDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.RealSubscriber.Create(pSpaceCTLNET.DbConnector,pSpaceCTLNET.TagVector)">
+            <summary>
+创建订阅器。
+如果tagvector[i]为空，或者tagvector[i]的测点ID无效该函数都会当做PSTAGID_UNUSED处理。
+</summary>
+            <param name="conn">数据库连接对象，如果为null将触发ArgumentNullException异常。</param>
+            <param name="tagvector">需要订阅的测点列表，如果为null将触发ArgumentNullException异常。如果tagvector的大小为0，将引发InvalidOperationException异常。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+	ArgumentNullException
+	InvalidOperationException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+RealDbException
+		+RealNotifyDbException
+		+TagDbException
+</returns>
+        </member>
+        <member name="T:pSpaceCTLNET.RealSubscriber">
+            <summary>
+实时数据变更订阅器类。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.RealDataChangedEventHandler">
+            <summary>
+实时数据变更事件委托。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbConnections.#ctor(System.Collections.Generic.List`1{pSpaceCTLNET.ConnectionInfo})">
+            <summary>
+构造函数，创建数据库连接对象集合的新实例。
+</summary>
+            <param name="infos">数据库连接对象列表。</param>
+        </member>
+        <member name="P:pSpaceCTLNET.ConnectionInfo.UserName">
+            <summary>
+获得连接对应的用户名称
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ConnectionInfo.ClientAppName">
+            <summary>
+获得连接对应的客户端程序名称
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ConnectionInfo.ClientComputer">
+            <summary>
+获得连接对应的客户端计算机名称
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ConnectionInfo.ExecuteTimeout">
+            <summary>
+获得执行超时时间
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ConnectionInfo.ConnectTimeout">
+            <summary>
+获得连接超时时间
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ConnectionInfo.UserId">
+            <summary>
+获得连接对应的用户Id 
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ConnectionInfo.ClientHandle">
+            <summary>
+获得连接句柄号。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.ConnectionInfo.#ctor">
+            <summary>
+构造函数，创建新的连接信息对象。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagQueryFilter.TryParse(System.String,pSpaceCTLNET.TagNode)">
+            <summary>
+根据szPath尝试解析生成TagQueryFilter对象。
+</summary>
+            <param name="szPath">查询条件字符串。</param>
+            <param name="tagnode">查询的启示节点。</param>
+            <returns>
+	如果成功返回0；如果首元素不存在，返回-1。
+</returns>
+        </member>
+        <member name="P:pSpaceCTLNET.TagQueryFilter.ResultNumber">
+            <summary>
+获取或设置返回的结果数量，与上一个变量ResultStartCount结合使用
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagQueryFilter.ResultStart">
+            <summary>
+获取或设置从符合条件的第N个结果开始返回
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagQueryFilter.Conditions">
+            <summary>
+获取或设置查询过滤条件描述[WHERE]
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagQueryFilter.StartNode">
+            <summary>
+获取或设置起始查询的测点[FROM] vs table
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagQueryFilter.Fields">
+            <summary>
+获取或设置查询结果中返回的测点属性字段域[SELECT]
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagQueryFilter.QueryLevel">
+            <summary>
+获取或设置查询的树深度，psQueryLevel_ALL查所有，0查本身，1、2、3...查相关深度
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagQueryFilter.QuerySelf">
+            <summary>
+获取或设置是否包含查询的测点自身
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagQueryFilter.#ctor">
+            <summary>
+构造测点查询过滤器对象。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagQueryConditions.TryParse(System.String,pSpaceCTLNET.TagTree)">
+            <summary>
+ 尝试解析。
+</summary>
+            <param name="szConditions">查询条件字符串。</param>
+            <param name="tagtree">测点树对象。</param>
+            <returns>
+如果成功返回0，否则返回-1。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagQueryConditions.InsertAndCompileExpression(pSpaceCTLNET.TagQueryExpression)">
+            <summary>
+加入一条新的条件表达式，并对其进行编译。
+</summary>
+            <param name="Exp">查询表达式对象。</param>
+        </member>
+        <member name="P:pSpaceCTLNET.TagQueryConditions.Expressions">
+            <summary>
+获得表达式集合
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagQueryConditions.#ctor">
+            <summary>
+构造函数。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagQueryExpression.TryParse(System.String,pSpaceCTLNET.TagTree)">
+            <summary>
+ 尝试解析查询条件字符串。
+</summary>
+            <param name="szExp">查询条件字符串。</param>
+            <param name="tagtree">测点树对象。</param>
+            <returns>
+如果成功返回0，否则返回-1。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagQueryExpression.Compile">
+            <summary>
+编译和强制类型转换。
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagQueryExpression.TagPropValue">
+            <summary>
+设置或获取指定字段的属性值
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagQueryExpression.Operator">
+            <summary>
+设置或获取比较操作符
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagQueryExpression.TagPropField">
+            <summary>
+设置或获取属性字段（域）定义
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagQueryExpression.#ctor(pSpaceCTLNET.PropField,pSpaceCTLNET.TagQueryExpression.CompareOperator,System.Object)">
+            <summary>
+根据条件构造对象。
+</summary>
+            <param name="_TagPropField">测点属性域定义对象。</param>
+            <param name="_Opt">比较方法对象。</param>
+            <param name="_TagPropValue">用于比较的测点属性的值。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagQueryExpression.#ctor">
+            <summary>
+缺省构造函数。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.TagQueryExpression.CompareOperator">
+
+比较操作符
+
+</member>
+        <member name="M:pSpaceCTLNET.TagManager.QueryTagsCount(pSpaceCTLNET.TagQueryFilter)">
+            <summary>
+根据过滤条件查询符合条件的测点集合的数量
+	如果filter.Conditions的条件数为空，则表示查询StartNode下所有的测点，因为没有任何条件。
+	filter.StartNode属性必须设置否则会抛出ArgumentException异常。
+注意：
+	如果filter.Fields 在此无意义。
+	如果filter.StartNode不存在则函数直接返回PSRET_OK，但并不引发异常。
+</summary>
+            <param name="filter">测点查询过滤器对象，如果为null将触发ArgumentNullException异常。</param>
+            <returns>
+如果成功返回符合条件的测点数量，否则将引发相应异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	ArgumentException(_TAG_STARTNODE_MUST_BE_SET_)
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.QueryTags(pSpaceCTLNET.TagQueryFilter)">
+            <summary>
+根据过滤条件查询符合条件的测点集合
+	如果filter.Conditions的条件数为空，则表示查询StartNode下所有的测点，因为没有任何条件。
+	filter.StartNode属性必须设置否则会抛出ArgumentException异常。
+注意：
+	如果filter.Fields不为null，该函数会向其中填充基础属性。
+	如果filter.StartNode不存在则函数直接返回null，但并不引发异常。
+</summary>
+            <param name="filter">测点查询过滤器对象，如果为null将触发ArgumentNullException异常。</param>
+            <returns>
+如果成功返回测点集合，否则返回null。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	ArgumentException(_TAG_STARTNODE_MUST_BE_SET_)
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.IsAncestor(pSpaceCTLNET.TagNode,pSpaceCTLNET.ITag)">
+            <summary>
+判断第一个测点是否是第二个测点的祖先结点，
+即从第二个测点开始循环找父结点，是否能找到第一个测点。
+</summary>
+            <param name="first">第一个测点。如果为null将引发ArgumentNullException异常。</param>
+            <param name="second">第二个测点。如果为null将引发ArgumentNullException异常。</param>
+            <returns />
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.IsTagExist(System.String)">
+            <summary>
+判断指定长名的的测点是否存在。
+</summary>
+            <param name="LongName">指定的测点的长名，如果为null将引发ArgumentNullException异常。</param>
+            <returns>
+如果存在则返回true，否则返回false。
+异常与错误：
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.IsTagExist(System.UInt32)">
+            <summary>
+判断指定ID的测点是否存在。
+</summary>
+            <param name="nTagId">指定的测点ID。</param>
+            <returns>
+如果存在则返回true，否则返回false。
+异常与错误：
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.TagMoveTo(pSpaceCTLNET.TagNode,pSpaceCTLNET.ITag)">
+            <summary>
+将服务器上的指定测点（及其子结点）移动到目标节点下的子测点列表的最后位置。
+注意：
+	移动不会导致原测点的ID属性发生变化。
+</summary>
+            <param name="dest">目标节点, 如果为null将触发ArgumentNullException异常。</param>
+            <param name="source">被移动的源测点, 如果为null将触发ArgumentNullException异常。</param>
+            <returns />
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.TagCopy(pSpaceCTLNET.TagNode,pSpaceCTLNET.ITag)">
+            <summary>
+将服务器上的指定测点（及其子结点）复制到目标节点下的子测点列表的最后位置。
+注意：拷贝不会导致源测点的ID属性发生变化。
+</summary>
+            <param name="dest">目标节点, 如果为null将触发ArgumentNullException异常。</param>
+            <param name="source">被拷贝的源测点, 如果为null将触发ArgumentNullException异常。</param>
+            <returns>
+	返回新测点的引用对象；如果是测点不存在则直接返回null，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	InvalidOperationException(_PARENT_TAG_IS_NOT_NODE_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.GetTagListById(System.Collections.Generic.List`1{System.UInt32},System.Collections.Generic.IEnumerable`1{pSpaceCTLNET.PropField})">
+            <summary>
+根据指定的ID从服务器获得测点及相关属性
+</summary>
+            <param name="tagIds">需要设置属性的测点ID列表, 如果为null将触发ArgumentNullException异常。</param>
+            <param name="propfields">需要设置的属性域（字段）集合, 如果为null将触发ArgumentNullException异常。。</param>
+            <returns>
+	如果成功则返回ITag对象。
+	如果nTagId不存在，或者propfields的有效集合数为0，则直接返回null，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.GetTagIdList(System.String[])">
+            <summary>
+根据长名获得测点的ID列表。
+</summary>
+            <param name="longNames">测点的长名列表字符串数组，必须不为空。</param>
+            <returns>
+	如果成功返回测点的ID列表，如果失败抛出异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	InvalidOperationException(_TAG_NAME_MUST_BE_SET_)
+	InvalidOperationException(_PARENT_TAG_IS_NOT_NODE_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.GetTagByName(System.String,System.Collections.Generic.IEnumerable`1{pSpaceCTLNET.PropField})">
+            <summary>
+根据长名从服务器获得测点及相关属性
+</summary>
+            <param name="LongName">测点长名, 如果为null将触发ArgumentNullException异常。</param>
+            <param name="propfields">需要设置的属性域（字段）集合, 如果为null将触发ArgumentNullException异常。</param>
+            <returns>
+	如果成功则返回ITag对象。
+	如果nTagId不存在，或者propfields的有效集合数为0，则直接返回null，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.GetTagById(System.UInt32,System.Collections.Generic.IEnumerable`1{pSpaceCTLNET.PropField})">
+            <summary>
+根据指定的ID从服务器获得测点及相关属性
+</summary>
+            <param name="nTagId">需要设置属性的测点对象, 如果为null将触发ArgumentNullException异常。</param>
+            <param name="propfields">需要设置的属性域（字段）集合, 如果为null将触发ArgumentNullException异常。。</param>
+            <returns>
+	如果成功则返回ITag对象。
+	如果nTagId不存在，或者propfields的有效集合数为0，则直接返回null，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.SetTagProperties(pSpaceCTLNET.ITag,System.Collections.Generic.IEnumerable`1{pSpaceCTLNET.PropField})">
+            <summary>
+ 更新服务器某个指定测点的属性集合。
+ 注意：
+	如果测点不存在，则函数直接返回，但并不抛出异常。
+     使用该函数前，需要通过tag["属性名"]设置好相关属性及属性的值，函数会根据tag中存在的属性值及propFields中约定的属性域决定设置的属性值，并上传到服务器。
+	该函数取的是tag.Properties名值对集合与propFields集合的交集上传服务器。
+	没有需要设置的项，则直接返回。
+</summary>
+            <param name="tag">需要设置属性的测点对象。如果为null将触发ArgumentNullException异常。</param>
+            <param name="propfields">需要设置的属性域（字段）集合。如果为null将触发ArgumentNullException异常。</param>
+            <returns>
+	如果成功返回PSRET_OK，如果测点不存在则返回PSRET_FAIL，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.GetTagProperties(pSpaceCTLNET.ITag,System.Collections.Generic.IEnumerable`1{pSpaceCTLNET.PropField})">
+            <summary>
+从服务器获得指定测点的属性集合。
+注意：
+     该函数会修改tag原有的属性集合，并填充新属性集合。
+	使用该函数前，需要确保tag是有效的,
+	否则函数不会向tag中填充任何信息，并直接返回。
+	如果测点不存在，则函数直接返回，但并不抛出异常。
+</summary>
+            <param name="tag">需要获得属性的测点对象。如果为null将触发ArgumentNullException异常。</param>
+            <param name="propfields">需要获得的属性域（字段）集合。如果为null将触发ArgumentNullException异常。</param>
+            <returns>
+	如果成功返回PSRET_OK，如果测点不存在则返回PSRET_FAIL，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.RemoveTag(pSpaceCTLNET.ITag)">
+            <summary>
+从服务器删除指定测点。
+</summary>
+            <param name="tag">用于删除的测点对象，如果为null将触发ArgumentNullException异常。</param>
+            <returns>
+	如果成功返回0，如果测点不存在则返回-1，但并不引发异常。
+异常与错误：
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.AddTag(pSpaceCTLNET.TagNode,pSpaceCTLNET.ITag)">
+            <summary>
+向服务器添加一个测点。
+</summary>
+            <param name="parent">父节点对象，如果为null将触发ArgumentNullException异常，如果为如果parent不是节点类型将触发InvalidOperationException异常。</param>
+            <param name="tag">新建的测点对象，如果为null将触发ArgumentNullException异常。则函数会修改成功的tag测点的ID值。</param>
+            <returns>
+	如果成功返回0，如果测点已经存在则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	InvalidOperationException(_TAG_NAME_MUST_BE_SET_)
+	InvalidOperationException(_PARENT_TAG_IS_NOT_NODE_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="P:pSpaceCTLNET.TagManager.TagTree">
+            <summary>
+获得或设置测点数对象。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.#ctor(pSpaceCTLNET.TagTree)">
+            <summary>
+构造函数，根据测点树对象创建并初始化测点管理基类对象。
+</summary>
+            <param name="tree">测点树对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagManager.#ctor">
+            <summary>
+构造函数，创建并初始化测点管理基类对象。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.HisDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.HisDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.HisDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.HisDbException.#ctor">
+            <summary>
+构造函数，初始化新实例。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbAlarmIO.Alarm_Ack(pSpaceCTLNET.DbConnector,System.UInt16,System.String,System.DateTime,pSpaceCTLNET.AlarmIDSet)">
+            <summary>
+报警确认。
+使用者需要确保conn已经连接。
+</summary>
+            <param name="conn">
+数据库连接对象
+</param>
+            <param name="nAckUserId">
+ 确认用户ID
+</param>
+            <param name="AlarmAckUserName">
+ 确认用户名
+</param>
+            <param name="AckTime">
+报警确认时间
+</param>
+            <param name="idset">
+报警ID集
+</param>
+            <returns>
+查询成功错误码为0，失败时返回相应的错误代码
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DbAlarmIO.Alarm_His_Query(pSpaceCTLNET.DbConnector,pSpaceCTLNET.DbAlarmFilter,System.DateTime,System.DateTime,pSpaceCTLNET.AlarmDataSet)">
+            <summary>
+查询报警历史。
+使用者需要确保conn已经连接。
+</summary>
+            <param name="conn">
+数据库连接对象
+</param>
+            <param name="filter">
+报警查询的过滤条器
+</param>
+            <param name="StartTime">
+报警开始时间
+</param>
+            <param name="EndTime">
+报警结束时间
+</param>
+            <param name="dataset">
+查询返回报警
+</param>
+            <returns>
+查询成功错误码为0，失败时返回相应的错误代码
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DbAlarmIO.Alarm_Real_Query(pSpaceCTLNET.DbConnector,pSpaceCTLNET.DbAlarmFilter,pSpaceCTLNET.AlarmDataSet)">
+            <summary>
+查询实时报警。
+使用者需要确保conn已经连接。
+</summary>
+            <param name="conn">
+数据库连接对象
+</param>
+            <param name="filter">
+报警查询的过滤条器
+</param>
+            <param name="dataset">
+查询返回报警
+</param>
+            <returns>
+查询成功错误码为0，失败时返回相应的错误代码
+</returns>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmAckedTime">
+            <summary>
+获得报警确认ID
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmAckedId">
+            <summary>
+获得报警确认ID
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmEndTime">
+            <summary>
+获得报警结束时间
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmHaveAcked">
+            <summary>
+获得报警是否已经确认
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmNeedAck">
+            <summary>
+获得报警是否需要确认
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmTopic">
+            <summary>
+获得报警主题
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmStartTime">
+            <summary>
+获得报警发生时间
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmAckUserName">
+            <summary>
+获得报警用户名
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmValue">
+            <summary>
+获得报警值
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmContent">
+            <summary>
+获得报警内容
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmLevel">
+            <summary>
+获得报警等级
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmAppType">
+            <summary>
+获得应用程序类型
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.UserId">
+            <summary>
+获得用户标识号
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.TagId">
+            <summary>
+获得相关测点Id
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.AlarmData.AlarmId">
+            <summary>
+获得报警ID
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.AlarmData">
+            <summary>
+数据库报警数据类。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbAlarmFilter.ClearFilter">
+            <summary>
+清理报警查询过滤器。该函数会将所有的查询选项设置为false。
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.bIsQueryOneLevel">
+            <summary>
+获得或设置当点ID为结点时是否只查询一层子结点
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.bAlarmContent">
+            <summary>
+获得或设置是否查询报警内容描述
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.bAlarmHighLevel">
+            <summary>
+获得或设置是否查询报警级别的高限
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.bAlarmLowLevel">
+            <summary>
+获得或设置是否查询报警级别的低限
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.bAlarmAckedId">
+            <summary>
+获得或设置报警应答者ID
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.bAlarmHaveAcked">
+            <summary>
+获得或设置报警的应答标志
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.bAlarmTopic">
+            <summary>
+获得或设置是否查询报警主题
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.bUserID">
+            <summary>
+获得或设置是否查询用户标识号
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.bTagId">
+            <summary>
+获得或设置是否查询相关测点ID
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.bAlarmId">
+            <summary>
+获得或设置是否查询报警编号
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.bAll">
+            <summary>
+获得或设置所有字段
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.IsQueryOneLevel">
+            <summary>
+获得或设置当点ID为结点时是否只查询一层子结点
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.AlarmContent">
+            <summary>
+获得或设置需要查询的事件内容描述
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.AlarmHighLevel">
+            <summary>
+获得或设置查询报警级别的高限
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.AlarmLowLevel">
+            <summary>
+获得或设置查询报警级别的低限
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.AlarmAckedId">
+            <summary>
+获得或设置报警应答者ID
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.AlarmHaveAcked">
+            <summary>
+获得或设置报警应答标志
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.AlarmTopic">
+            <summary>
+获得或设置需要查询的报警主题
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.UserID">
+            <summary>
+获得或设置需要查询的用户标识号
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.TagId">
+            <summary>
+获得或设置需要查询的相关测点ID
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbAlarmFilter.AlarmId">
+            <summary>
+获得或设置报警编号
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbAlarmFilter.#ctor">
+            <summary>
+默认构造函数。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbAlarmFilter">
+            <summary>
+事件查询过滤器
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.UserDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.UserDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.UserDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.UserDbException.#ctor">
+            <summary>
+构造函数，初始化新实例。
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.GroupInfo.SecurityArea">
+            <summary>
+获得或设置安全区
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.GroupInfo.Permission">
+            <summary>
+获得或设置用户组权限
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.GroupInfo.Description">
+            <summary>
+获得或设置用户组描述
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.GroupInfo.GroupName">
+            <summary>
+获得或设置用户组名称
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.GroupInfo.GroupId">
+            <summary>
+获得用户组ID
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.GroupInfo.#ctor">
+            <summary>
+构造函数，创建用户组信息类新对象。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.QualityStamp.IsGood">
+            <summary>
+判断是否是好质量戳。
+</summary>
+            <returns>
+如果是则返回true，否则返回false。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.QualityStamp.IsUncertain">
+            <summary>
+判断是否是不确定的质量戳。
+</summary>
+            <returns>
+如果是则返回true，否则返回false。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.QualityStamp.IsBad">
+            <summary>
+判断是否是坏质量戳。
+</summary>
+            <returns>
+如果是则返回true，否则返回false。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DigitalTagElement.Construct(pSpaceCTLNET.TagTree,System.String)">
+            <summary>
+构造一个测点。
+</summary>
+            <param name="tagtree">测点树对象，如果为null将触发ArgumentNullException异常。</param>
+            <param name="tagname">测点短名，如果为null将触发ArgumentNullException异常。</param>
+            <returns>
+	ArgumentNullException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DigitalTagElement.#ctor">
+            <summary>
+构造函数，创建新的数字点对象。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.SelectNodes(System.String)">
+            <summary>
+	根据条件字符串选择或查询匹配的条件的所有测点列表，包括各子节点下的所有测点。
+</summary>
+            <param name="szPath">
+	查询描述字段，如果为Null将引发ArgumentNullException异常。
+</param>
+            <returns>
+	如果成功返回测点集合对象，如果没有符合条件的测点则返回大小为0的集合，否则将触发相应的异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	ArgumentException(_TAG_STARTNODE_MUST_BE_SET_)
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.SelectNodes(System.String,System.UInt32,System.UInt32,System.Boolean,System.Boolean)">
+            <summary>
+	根据条件字符串选择或查询匹配的条件的测点列表。
+	效率说明："[*]@*" 高于 "/a[*]@*" 高于 "a[*]@*"
+</summary>
+            <param name="szPath">
+	查询描述字段。需要特别注意的是：描述字符串中不应该包括空格、换行等字符。
+    如果为Null将引发ArgumentNullException异常。
+
+    以下是szPath的示例：
+	------------期望成功--------------
+	("a[*]@*")
+	("[*]@*")
+	("/[*]@*")
+	("/a[*]@*")
+	("/a/a[*]@*")
+	("/a/a[a=*]@*")
+	("/a/a[a=100]@*")
+	("/a/a[a=100.5]@*")
+	("/a/a[a=100.5E-10]@*")
+	("/a/a[a=b]@a")
+	("/a/a[a=b?]@a")
+	("/a/a[a=??]@a")
+	("/a/a[a=b?b?c]@a")
+	("/a/a[a=b???c]@a")
+	("/a/a[a=b,c=d]@a")
+	("/a/a[a=b,c=d]@a,b")          
+	("a/a[*]@*")
+	("a1[Name=A1]@*")
+
+	-------期望失败-------
+	("/a/a[*=b]@a")
+	("/a/[*]@*")
+	("a/[*]@*")
+	("a//[*]@*")
+	("/a/a[,]@*")
+	("//[*]@*")
+	("/a/a[a=,b]@*")
+	("/?/a[*]@*")
+	("/a/a[a=b,c=d]@,")
+	("/a/a[a=b,c=d,]@*")
+	("/a/a[a=b,c=d]@a,")
+</param>
+            <param name="uStart">从符合条件的第m_uResultStart个结果开始返回。</param>
+            <param name="uNumber">返回的结果数量，与上一个变量结合使用。当uStart和uNumber都为0时，函数会忽略这两个参数。</param>
+            <param name="bSubNodes">是否查询所有子节点。</param>
+            <param name="bQuerySelf">是否查询首节点自身。通常这个参数应该为FALSE。</param>
+            <returns>
+	如果成功返回测点集合对象，如果没有符合条件的测点则返回大小为0的集合，否则将触发相应的异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	ArgumentException(_TAG_STARTNODE_MUST_BE_SET_)
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.SelectSingleNode(System.String)">
+            <summary>
+	根据测点名查询字符串选择或查询符合条件的测点。
+</summary>
+            <param name="szPath">
+	查询描述字段，如果为Null将引发ArgumentNullException异常。
+    例如："/N1/A1@His_IsSave,InitValue"，获得测点/N1/A1及其His_IsSave和InitValue值；
+		  "/N1/A1@*", 获得测点/N1/A1及其所有属性值。
+		  "A1@*"，获得当前节点下的指定测点的所有属性值。（效率原因，使用绝对路径比相对路径效率高）
+</param>
+            <returns>
+	如果成功返回相应测点，如果查询不到符合条件的测点则返回null，否则会引发相应的异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_PARENT_TAG_IS_NOT_NODE_)
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.GetSubTags(System.Boolean)">
+            <summary>
+从服务器获取当前测点下所有的子测点列表（仅对节点有效)，并获得其所有属性值。
+说明：
+	当bAllLevel为false时只查当前节点下的一级子测点，否则查询包括各级子节点的所有测点。
+</summary>
+            <param name="bAllLevel">否查询所有的子集。</param>
+            <returns>
+	如果成功（或部分成功）函数会返回相应的子测点集合，如果失败或当前测点并不存在则返回null。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_PARENT_TAG_IS_NOT_NODE_)
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.GetSubTags(System.String[],System.Boolean)">
+            <summary>
+从服务器获取当前测点下所有的子测点列表（仅对节点有效)，并根据字符串列表（测点属性域字段名)获得其相关属性值。
+说明：
+	当bAllLevel为false时只查当前节点下的一级子测点，否则查询包括各级子节点的所有测点。
+	当前测点必须是节点类型，否则函数将引发InvalidOperationException(_PARENT_TAG_IS_NOT_NODE_)异常。
+</summary>
+            <param name="PropNames">查询的测点属性名称列表，如果为Null将引发ArgumentNullException异常。</param>
+            <param name="bAllLevel">否查询所有的子集。</param>
+            <returns>
+	如果成功（或部分成功）函数会返回相应的子测点集合，如果失败或当前测点并不存在则返回null。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_PARENT_TAG_IS_NOT_NODE_)
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.GetSubTags(System.Collections.Generic.IEnumerable`1{pSpaceCTLNET.PropField},System.Boolean)">
+            <summary>
+从服务器获取当前测点下所有的子测点列表（仅对节点有效)，并根据propFields属性集合获得其相关属性值。
+说明：
+	当bAllLevel为false时只查当前节点下的一级子测点，否则查询包括各级子节点的所有测点。
+	当前测点必须是节点类型，否则函数将引发InvalidOperationException(_PARENT_TAG_IS_NOT_NODE_)异常。
+</summary>
+            <param name="propfields">需要查询的测点属性域集合，如果为Null将引发ArgumentNullException异常。</param>
+            <param name="bAllLevel">是否查询所有的子集。</param>
+            <returns>
+	如果成功（或部分成功）函数会返回相应的子测点集合，如果失败或当前测点并不存在则返回null。		 /// 
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_PARENT_TAG_IS_NOT_NODE_)
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.RemoveTag(pSpaceCTLNET.ITag)">
+            <summary>
+移除指定的测点。
+如果删除的测点不存在会返回错误。
+注意：
+	该函数会导致直接向服务器添加一个子测点，该操作是不可撤销的。
+	该函数也可用于删除任意其他测点，而不一定是当前测点下的子测点。
+</summary>
+            <param name="oldChild">指定删除的测点，，如果为Null将引发ArgumentNullException异常。</param>
+            <returns>
+	如果成功返回0，如果测点不存在则返回-1，但并不引发异常。
+异常与错误：
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.AppendChild(pSpaceCTLNET.ITag)">
+            <summary>
+	将指定的测点添加到该节点的子节点列表的末尾。
+	使用者不应设置newChild的测点ID属性，如果成功该函数会修改测点newChild的测点ID属性，否则不会修改。
+	该函数将会根据newChild的测点类型，选择已经设置的newChild测点属性添加到新的测点中。
+</summary>
+            <param name="newChild">
+	 需要添加的新测点，如果为Null将引发ArgumentNullException异常。三个属性是必须填充的（测点名、测点类型和测点数据类型）。
+</param>
+            <returns>
+	如果成功返回0，如果测点newChild已经存在则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	InvalidOperationException(_TAG_NAME_MUST_BE_SET_)
+	InvalidOperationException(_PARENT_TAG_IS_NOT_NODE_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.Update(System.String[])">
+            <summary />
+            <param name="PropNames">需要设置的属性名称列表，如果为Null将引发ArgumentNullException异常。</param>
+            <returns>
+	如果成功返回0，如果测点不存在则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.Update(System.Collections.Generic.IEnumerable`1{pSpaceCTLNET.PropField})">
+            <summary>
+根据测点属性集合获得相关属性, 向服务器同步/异步上传修改后的数据，属性为只读的字段将被忽略。
+注意：
+	如果测点不存在，则函数直接返回，但并不抛出异常。
+    使用该函数前，需要通过tag["属性名"]设置好相关属性及属性的值，函数会根据tag中存在的属性值及propFields中约定的属性域决定设置的属性值，并上传到服务器。
+	该函数取的是tag.Properties名值对集合与propFields集合的交集上传服务器。
+	没有需要设置的项，则直接返回。
+</summary>
+            <param name="propfields">需要设置的属性域定义，如果为Null将引发ArgumentNullException异常。</param>
+            <returns>
+	如果成功返回0，如果测点不存在则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.Update">
+            <summary />
+            <returns>
+	如果成功返回0，如果测点不存在则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.Validate(System.String[])">
+            <summary>
+根据字符串列表（测点属性域字段名), 从服务器同步下置测点所有属性。
+
+注意：
+	如果成功，该函数会填充当前对象的所有属性值，通过[属性名]重载操作符访问属性值。
+	如果失败，函数不会修改当前对象的属性值。
+    该函数会修改当前测点的原有的属性集合，并填充新属性集合。
+	如果测点不存在，则函数直接返回，但并不抛出异常。
+</summary>
+            <param name="PropNames">需要更新的属性名称列表，如果为Null将引发ArgumentNullException异常。</param>
+            <returns>
+	如果成功返回0，如果测点不存在则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.Validate(System.Collections.Generic.IEnumerable`1{pSpaceCTLNET.PropField})">
+            <summary>
+根据测点属性集合获得相关属性, 从服务器同步下置测点所有属性。	
+注意：
+	如果成功，该函数会填充当前对象的所有属性值，通过[属性名]重载操作符访问属性值。
+	如果失败，函数不会修改当前对象的属性值。
+    该函数会修改当前测点的原有的属性集合，并填充新属性集合。
+	如果测点不存在，则函数直接返回，但并不抛出异常。
+</summary>
+            <param name="propfields"> 需要更新的属性域定义,如果为null将引发ArgumentNullException异常。</param>
+            <returns>
+	如果成功返回0，如果测点不存在则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.Validate">
+            <summary>
+从服务器同步下置测点所有属性。
+注意：
+	如果成功，该函数会填充当前对象的所有属性值，通过[属性名]重载操作符访问属性值。
+	如果失败，函数不会修改当前对象的属性值。
+    该函数会修改当前测点的原有的属性集合，并填充新属性集合。
+	如果测点不存在，则函数直接返回，但并不抛出异常。
+</summary>
+            <returns>
+	如果成功返回0，如果测点不存在则返回-1，但并不引发异常。
+异常与错误：
+	OutOfMemoryException
+	InvalidOperationException(_TAG_INIT_INVALID_)
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="P:pSpaceCTLNET.TagNode.Item(System.String)">
+            <summary>
+获得或设置测点属性值
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagNode.TagLongName">
+            <summary>
+获得测点长名
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagNode.TagId">
+            <summary>
+获得或设置测点ID
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagNode.DataType">
+            <summary>
+获得或设置数据类型
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagNode.TagTree">
+            <summary>
+获得测点树
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagNode.Properties">
+            <summary>
+获得测点属性集合
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagNode.TagType">
+            <summary>
+获得或设置测点类型
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagNode.TagName">
+            <summary>
+获得或设置测点名称
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.Construct(pSpaceCTLNET.TagTree,System.String)">
+            <summary>
+根据测点树对象，构造一个测点，缺省状况下测点的ID为-1。
+</summary>
+            <param name="tagtree">测点树对象，如果为Null将引发ArgumentNullException异常。</param>
+            <param name="tagname">测点名，如果为Null将引发ArgumentNullException异常。</param>
+            <returns>
+该函数期望成功，如果失败会触发相应异常。
+ArgumentNullException
+OutOfMemoryException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagNode.#ctor">
+            <summary>
+构造一个测点，缺省状况下测点的ID为-1。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTree.GetTreeRoot">
+            <summary>
+ 获取并返回TagTree的根路径，注意使用者必须使用CreateInstance创建测点树，否则将引发InvalidOperationException异常。
+</summary>
+            <returns>
+	如果成功返回当前数据库中测点树的根节点，否则将引发相应异常。
+异常：
+	OutOfMemoryException
+	InvalidOperationException(_TAG_TYPE_SYSTEM_INIT_FAIL_);
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+TagTypeDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTree.GetMgr">
+            <summary>
+ 获得测点管理器
+</summary>
+            <returns>
+如果成功返回内置的测点管理器对象，否则将引发相应异常。
+异常与错误：
+	OutOfMemoryException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTree.CreateTag(System.String,pSpaceCTLNET.TagType)">
+            <summary>
+根据指定的测点类型创建一个新的测点。
+</summary>
+            <param name="tagname">测点名，如果为null将引发ArgumentNullException异常。</param>
+            <param name="tagtype">指定的测点类型，如果为null将引发ArgumentNullException异常。</param>
+            <returns>
+如果成功返回新建的测点对象，否则将引发相应异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+TagTypeDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTree.CreateTag``1(System.String)">
+            <summary>
+创建一个空的测点，根据测点类型Ty
+</summary>
+            <param name="tagname">测点名，如果为null将引发ArgumentNullException异常。</param>
+            <returns>
+如果成功返回新建的测点对象，否则将引发相应异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+TagTypeDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTree.CreateInstance(pSpaceCTLNET.DbConnector)">
+            <summary>
+创建TagTree实体。
+</summary>
+            <param name="dbAdapter">数据库连接对象，如果为null将引发ArgumentNullException异常。</param>
+            <returns>
+如果成功返回测点树对象，否则将引发相应异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+TagTypeDbException
+</returns>
+        </member>
+        <member name="P:pSpaceCTLNET.TagTree.DbAdapter">
+            <summary>
+设置和获取服务器连接对象。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTree.Load(pSpaceCTLNET.DbConnector)">
+            <summary>
+加载测点类型定义信息。
+</summary>
+            <param name="dbAdapter">数据库连接对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTree.Load">
+            <summary>
+加载测点类型定义信息。
+注意：
+	如果与服务器的连接断开，重新连接后应该重新运行该函数，以获得最新的TagType信息。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTree.#ctor(pSpaceCTLNET.DbConnector)">
+            <summary>
+构造测点树，使用者不要使用该函数构造对象。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTree.#ctor">
+            <summary>
+构造测点树，使用者不要使用该函数构造对象。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.RealDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.RealDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.RealDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.RealDbException.#ctor">
+            <summary>
+构造函数，初始化新实例。
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.UserInfo.Description">
+            <summary>
+获得或设置用户描述
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.UserInfo.SecurityArea">
+            <summary>
+获得安全区
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.UserInfo.Permission">
+            <summary>
+获得用户权限设置
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.UserInfo.Password">
+            <summary>
+设置或获得用户密码
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.UserInfo.UserName">
+            <summary>
+设置或获得用户名名称
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.UserInfo.UserId">
+            <summary>
+ 获得用户ID
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.UserInfo.#ctor">
+            <summary>
+缺省构造函数，初始化时UserId=-1。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.PermissionAccess.#ctor(System.UInt32)">
+            <summary>
+构造函数，根据数据库操作权限定义编码组合创建对象.
+</summary>
+            <param name="dwAccess">数据库操作权限定义编码组合</param>
+        </member>
+        <member name="M:pSpaceCTLNET.PermissionAccess.#ctor(&lt;unknown type&gt;)">
+            <summary>
+构造函数，根据数据库操作权限定义枚举创建对象.
+</summary>
+            <param name="accessEnum">数据库操作权限定义枚举</param>
+        </member>
+        <member name="M:pSpaceCTLNET.PermissionAccess.#ctor">
+            <summary>
+构造函数，缺省情况下权限为DbAccessEnum.None.
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbMonitor.Reset">
+            <summary>
+重设监视器以响应新的连接状态。
+</summary>
+        </member>
+        <member name="E:pSpaceCTLNET.DbMonitor.DbStatusChanged">
+            <summary>
+服务器状态改变事件。
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbMonitor.Enabled">
+            <summary>
+设置或获得是否允许获得服务器状态变更通知
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbMonitor.DbAdapter">
+            <summary>
+设置或获得服务器连接对象
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbMonitor.#ctor(pSpaceCTLNET.DbConnector)">
+            <summary>
+构造函数，创建服务器状态监视器对象。
+</summary>
+            <param name="conn">服务器连接对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.DbMonitor.#ctor">
+            <summary>
+ 构造函数，创建服务器状态监视器对象。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbStatusChangedEventHandler">
+
+数据库状态改变事件定义。
+
+</member>
+        <member name="P:pSpaceCTLNET.TagHisValues.Data">
+            <summary>
+获得测点对应的历史数据集合
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagHisValues.TagId">
+            <summary>
+设置或获得测点ID
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagHisValues.#ctor">
+            <summary>
+构造函数，创建历史数据集集合对象。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTypeDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTypeDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTypeDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTypeDbException.#ctor">
+            <summary>
+构造函数，初始化新实例。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化类的新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化类的新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化类的新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagDbException.#ctor">
+            <summary>
+构造函数，初始化新实例。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.EventDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.EventDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.EventDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.EventDbException.#ctor">
+            <summary>
+构造函数，初始化新实例。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.ISubscriber.Close">
+            <summary>
+关闭订阅器。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.ISubscriber.RemoveAll">
+            <summary>
+从订阅器中移除所有订阅。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.ISubscriber.Remove(pSpaceCTLNET.TagVector)">
+            <summary>
+  从订阅器中移除一批订阅点集合。
+</summary>
+            <param name="tagvector">需要取消订阅的测点列表。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.ISubscriber.Add(pSpaceCTLNET.TagVector)">
+            <summary>
+  向订阅器中加入新的订阅点集合。
+</summary>
+            <param name="tagvector">需要订阅的测点列表。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.ISubscriber.Create(pSpaceCTLNET.DbConnector,pSpaceCTLNET.TagVector)">
+            <summary>
+ 创建订阅器。
+</summary>
+            <param name="conn">数据库连接对象。</param>
+            <param name="tagvector">需要订阅的测点列表。</param>
+            <returns>
+	如果成功或部分成功，函数返回BatchResults对象。
+	如果成功BatchResults.HasErrors为false；如果批量操作中有部分失败，则BatchResults.HasErrors为true。
+</returns>
+        </member>
+        <member name="P:pSpaceCTLNET.ISubscriber.Enabled">
+            <summary>
+获得或设置是否可以开始响应变更事件，缺省情况下为FALSE。
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ISubscriber.SubscribeTagIds">
+            <summary>
+获得订阅的测点ID
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ISubscriber.SubscribeID">
+            <summary>
+获得订阅号
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ISubscriber.DbAdapter">
+            <summary>
+获得或设置订阅的连接器
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.ISubscriber.#ctor">
+            <summary>
+构造函数，用于构造并初始化订阅回调器对象。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.ISubscriber">
+            <summary>
+订阅回调器抽象类接口。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.BatchResults.Construct(System.Int32*,System.UInt32)">
+            <summary>
+创建结构， 如果nCount==0表示批量结果集中没有错误。
+</summary>
+            <param name="pErrors">非托管的错误数组。</param>
+            <param name="nCount">非托管的错误数组的大小。</param>
+        </member>
+        <member name="P:pSpaceCTLNET.BatchResults.HasErrors">
+            <summary>
+获得批次操作的状态结果是否有错。
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.BatchResults.Errors">
+            <summary>
+获得错误记录的集合。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.BatchResults.#ctor(System.Int32*,System.UInt32)">
+            <summary>
+构造函数，根据非托管的错误数组构造批量操作结果对象。
+</summary>
+            <param name="pErrors">非托管的错误数组。</param>
+            <param name="nCount">非托管的错误数组的大小。</param>
+        </member>
+        <member name="T:pSpaceCTLNET.BatchResults">
+            <summary>
+批量操作的结果集类定义
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DataIO">
+
+实时和历史数据读写全局静态类。
+
+<summary>
+实时和历史数据读写全局静态类。
+</summary></member>
+        <member name="T:pSpaceCTLNET.HisDataSet">
+
+历史数据集合类。
+
+<summary>
+历史数据集合类。
+</summary></member>
+        <member name="T:pSpaceCTLNET.TagHisValues">
+
+测点ID与历史数据集组成的二元组。
+
+<summary>
+测点ID与历史数据集组成的二元组。
+</summary></member>
+        <member name="T:pSpaceCTLNET.TagManager">
+
+测点管理基类，提供对底层测点相关API接口的封装。
+
+<summary>
+测点管理基类，提供对底层测点相关API接口的封装。
+</summary></member>
+        <member name="T:pSpaceCTLNET.TagQueryFilter">
+
+负责封装和描述查询测点的过滤器。
+
+<summary>
+负责封装和描述查询测点的过滤器。
+</summary></member>
+        <member name="T:pSpaceCTLNET.TagQueryConditions">
+
+查询条件表达式的表达结构类
+
+<summary>
+查询条件表达式的表达结构类
+</summary></member>
+        <member name="T:pSpaceCTLNET.TagQueryExpression">
+
+查询条件原子表达式，不可被分解的表达式。
+
+<summary>
+查询条件原子表达式，不可被分解的表达式。
+</summary></member>
+        <member name="T:pSpaceCTLNET.AnalogTagElement">
+
+模拟点类型测点类。
+
+<summary>
+模拟点类型测点类。
+</summary></member>
+        <member name="T:pSpaceCTLNET.DigitalTagElement">
+
+数字点类型测点类。
+
+<summary>
+数字点类型测点类。
+</summary></member>
+        <member name="T:pSpaceCTLNET.TagNode">
+
+测点信息的基类，所有其他类型的测点类都从该类派生（包括节点、变量点等）。
+
+<summary>
+测点信息的基类，所有其他类型的测点类都从该类派生（包括节点、变量点等）。
+</summary></member>
+        <member name="T:pSpaceCTLNET.TagTree">
+
+测点树基类，提供对测点树数据的管理和维护。
+
+<summary>
+测点树基类，提供对测点树数据的管理和维护。
+</summary></member>
+        <member name="T:pSpaceCTLNET.TagVector">
+
+测点集合类型。
+
+<summary>
+测点集合类型。
+</summary></member>
+        <member name="T:pSpaceCTLNET.TagTypeSystem">
+
+测点类型系统 静态类
+
+<summary>
+测点类型系统 静态类
+</summary></member>
+        <member name="T:pSpaceCTLNET.DbMonitor">
+
+服务器状态监视类。
+
+<summary>
+服务器状态监视类。
+</summary></member>
+        <member name="T:pSpaceCTLNET.UserDbException">
+
+用户和用户组操作相关错误类型异常
+
+<summary>
+用户和用户组操作相关错误类型异常
+</summary></member>
+        <member name="T:pSpaceCTLNET.EventNotifyDbException">
+
+事件订阅相关错误类型异常
+
+<summary>
+事件订阅相关错误类型异常
+</summary></member>
+        <member name="T:pSpaceCTLNET.EventDbException">
+
+事件相关错误类型异常
+
+<summary>
+事件相关错误类型异常
+</summary></member>
+        <member name="T:pSpaceCTLNET.HisDbException">
+
+历史数据相关错误类型异常
+
+<summary>
+历史数据相关错误类型异常
+</summary></member>
+        <member name="T:pSpaceCTLNET.AuthorityDbException">
+
+权限相关错误类型异常
+
+<summary>
+权限相关错误类型异常
+</summary></member>
+        <member name="T:pSpaceCTLNET.RealNotifyDbException">
+
+实时订阅相关错误类型异常
+
+<summary>
+实时订阅相关错误类型异常
+</summary></member>
+        <member name="T:pSpaceCTLNET.RealDbException">
+
+实时相关错误类型异常
+
+<summary>
+实时相关错误类型异常
+</summary></member>
+        <member name="T:pSpaceCTLNET.TagNotifyDbException">
+
+测点订阅相关错误类型异常
+
+<summary>
+测点订阅相关错误类型异常
+</summary></member>
+        <member name="T:pSpaceCTLNET.TagDbException">
+
+测点相关错误类型异常
+
+<summary>
+测点相关错误类型异常
+</summary></member>
+        <member name="T:pSpaceCTLNET.TagTypeDbException">
+
+测点类型系统相关错误类型异常
+
+<summary>
+测点类型系统错误类型异常
+</summary></member>
+        <member name="T:pSpaceCTLNET.ConnectDbException">
+
+通讯相关错误类型异常
+
+<summary>
+通讯相关错误类型异常
+</summary></member>
+        <member name="T:pSpaceCTLNET.CommonDbException">
+
+通用错误类型异常
+
+<summary>
+通用错误类型异常
+</summary></member>
+        <member name="T:pSpaceCTLNET.UserManager">
+
+用户（组）管理类。
+
+<summary>
+用户（组）管理类。
+</summary></member>
+        <member name="T:pSpaceCTLNET.GroupInfos">
+
+用户组信息列表类。
+
+<summary>
+用户组信息列表类。
+</summary></member>
+        <member name="T:pSpaceCTLNET.GroupInfo">
+
+用户组信息类。
+
+<summary>
+用户组信息类。
+</summary></member>
+        <member name="T:pSpaceCTLNET.UserInfos">
+
+用户信息列表类
+
+<summary>
+用户信息集合类。
+</summary></member>
+        <member name="T:pSpaceCTLNET.UserInfo">
+
+用户信息类
+
+<summary>
+用户信息类
+</summary></member>
+        <member name="T:pSpaceCTLNET.DbAlarm">
+
+数据报警类。
+
+</member>
+        <member name="T:pSpaceCTLNET.DbAlarms">
+
+数据报警集合类。
+
+</member>
+        <member name="T:pSpaceCTLNET.QualityStamp">
+
+质量戳类型基类。
+
+<summary>
+质量戳类型基类。
+</summary></member>
+        <member name="T:pSpaceCTLNET.DbConnections">
+
+数据库当前所有的连接客户端信息集合。
+
+<summary>
+数据库当前所有的连接客户端信息集合。
+</summary></member>
+        <member name="T:pSpaceCTLNET.ConnectionInfo">
+
+数据库当前所有连接信息类。
+
+<summary>
+数据库当前所有连接信息类。
+</summary></member>
+        <member name="T:pSpaceCTLNET.DbInfo">
+
+数据库服务器信息类。
+
+<summary>
+数据库服务器信息类。
+</summary></member>
+        <member name="T:pSpaceCTLNET.PermissionAccess">
+
+权限定义类
+
+<summary>
+权限定义类
+</summary></member>
+        <member name="T:pSpaceCTLNET.DbAlarmLevelEnum">
+            <summary>
+报警级别枚举。
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.EmergencyLevel">
+            <summary>
+紧急的
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.HighLevel">
+            <summary>
+高级的
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.LowLevel">
+            <summary />
+        </member>
+        <member name="T:pSpaceCTLNET.DbEventLevelEnum">
+            <summary>
+事件级别枚举。
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Fatal">
+            <summary>
+致命
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Critical">
+            <summary>
+危急
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Error">
+            <summary>
+错误
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Alert">
+            <summary>
+警报
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Warning">
+            <summary>
+警告
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Notify">
+            <summary>
+通报
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Information">
+            <summary>
+信息
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbAlarmTopicEnum">
+            <summary>
+报警主题枚举 
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.BeyondDev">
+            <summary>
+偏差报警
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.BeyondChangeRate">
+            <summary>
+变化率报警
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.BeyondLLowLimit">
+            <summary>
+越低低限
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.BeyondLowLimit">
+            <summary>
+越低限
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.BeyondHHighLimit">
+            <summary>
+越高高限
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.BeyondHighLimit">
+            <summary>
+越高限
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ValueChanged">
+            <summary>
+值改变
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.QualityChanged">
+            <summary>
+质量戳改变
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbEventTopicEnum">
+            <summary>
+事件主题枚举 
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Alarm">
+            <summary>
+数据报警相关
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Configuration">
+            <summary>
+配置相关
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Security">
+            <summary>
+安全相关
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Performance">
+            <summary>
+性能相关
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Communication">
+            <summary>
+连接相关
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Application">
+            <summary>
+程序相关
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.TagChangeType">
+            <summary>
+测点变更类型枚举
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Initialized">
+            <summary>
+系统初始化，所有测点被删除
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.TagRemoved">
+            <summary>
+测点被删除
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.TagProperiesChange">
+            <summary>
+测点属性改动
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.TagCreated">
+            <summary>
+测点建立
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.AggregateEnum">
+            <summary>
+统计项定义
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.WORSTQUALITY">
+            <summary>
+最坏质量戳
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.PERCENTBAD">
+            <summary>
+坏数据比例
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.PERCENTGOOD">
+            <summary>
+好数据比例
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DURATIONBAD">
+            <summary>
+坏数据区间
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DURATIONGOOD">
+            <summary>
+好数据区间
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.RANGE">
+            <summary>
+幅度
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.VARIANCE">
+            <summary>
+方差
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.REGDEV">
+            <summary>
+预留）未实现
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.REGCONST">
+            <summary>
+（预留）未实现
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.REGSLOPE">
+            <summary>
+（预留）未实现
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DELTA">
+            <summary>
+变化
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.END">
+            <summary>
+结束数据
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.START">
+            <summary>
+开始数据
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.MAXIMUM">
+            <summary>
+最大值
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.MAXIMUMACTUALTIME">
+            <summary>
+带实际时间戳的最大值
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.MINIMUM">
+            <summary>
+最小值
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.MINIMUMACTUALTIME">
+            <summary>
+带实际时间戳的最小值
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.STDEV">
+            <summary>
+标准差
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.COUNT">
+            <summary>
+计数
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.TIMEAVERAGE">
+            <summary>
+时间平均值
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.AVERAGE">
+            <summary>
+平均值
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.TOTALIZEAVERAGE">
+            <summary>
+时间平均和
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.TOTAL">
+            <summary>
+和
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.INTERPOLATIVE">
+            <summary>
+插值
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.NOAGGREGATE">
+            <summary>
+非统计值
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.QUALITY_MASK">
+            <summary>
+质量戳掩码定义。
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.PARTIAL">
+            <summary>
+统计数据是基于不完整时间区间
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.CONVERSION">
+            <summary>
+转换错误
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DATALOST">
+            <summary>
+数据丢失
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.NODATA">
+            <summary>
+没有数据
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.NOBOUND">
+            <summary>
+找不到边界
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.CALCULATED">
+            <summary>
+计算产生的值
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.RAW">
+            <summary>
+原始值
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.INTERPOLATED">
+            <summary>
+插值产生的值
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.EXTRADATA">
+            <summary>
+在相同条件下超过一个值
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.LL_MASK">
+            <summary>
+The Limit BitField
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.LOCAL_OVERRIDE">
+            <summary>
+值被覆盖(GOOD)
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.SUB_NORMAL">
+            <summary>
+值从多个数据源得到，但缺少足够多的好数据
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.EGU_EXCEEDED">
+            <summary>
+超量程
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.SENSOR_CAL">
+            <summary>
+传感器值不精确
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.LAST_USABLE">
+            <summary>
+上一个可用值
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.WAITING_FOR_INITIAL_DATA">
+            <summary>
+尚未取得设备数据
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.OUT_OF_SERVICE">
+            <summary>
+设备停机
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.COMM_FAILURE">
+            <summary>
+通讯失败(且无上一次采集值可用)
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.LAST_KNOWN">
+            <summary>
+上一次采集的值(通讯失败)
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.SENSOR_FAILURE">
+            <summary>
+传感器失败
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DEVICE_FAILURE">
+            <summary>
+设备失败
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.NOT_CONNECTED">
+            <summary>
+没有连接设备
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.CONFIG_ERROR">
+            <summary>
+配置错误
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.SUBSTATUS_MASK">
+            <summary>
+Substatus for BAD Quality 用于屏蔽主状态
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.GOOD">
+            <summary>
+好的数据
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.NA">
+            <summary>
+N/A
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.UNCERTAIN">
+            <summary>
+不可靠数据
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.BAD">
+            <summary>
+坏数据
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.MASK">
+            <summary>
+Quality BITMASK 用于屏蔽子状态
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DataField">
+            <summary>
+数据域定义。
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Quality">
+            <summary>
+0x04, 是否处理数据记录的质量戳字段
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Time">
+            <summary>
+0x02, 是否处理数据记录的值字段
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Value">
+            <summary>
+0x01, 是否处理数据记录的时间戳字段
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.TagDataType">
+            <summary>
+测点所支持的数据类型定义
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_Blob">
+            <summary>
+二进制数据块
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_WString">
+            <summary>
+宽字符串
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_String">
+            <summary>
+ANSI字符串
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_Time">
+            <summary>
+时间
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_Double">
+            <summary>
+双精度浮点数
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_Float">
+            <summary>
+单精度浮点数
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_UInt64">
+            <summary>
+八字节无符号整数
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_Int64">
+            <summary>
+八字节整数
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_UInt32">
+            <summary>
+四字节无符号整数
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_Int32">
+            <summary>
+四字节整数
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_UInt16">
+            <summary>
+二字节无符号整数
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_Int16">
+            <summary>
+二字节整数
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_UInt8">
+            <summary>
+一字节无符号整数
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_Int8">
+            <summary>
+一字节整数
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_Bool">
+            <summary>
+开关量
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DT_Empty">
+            <summary>
+未定义
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.TagTypeEnum">
+            <summary>
+测点类型枚举
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.StringType">
+            <summary>
+字符串点类型
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.AnalogType">
+            <summary>
+模拟点类型
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.DigitalType">
+            <summary>
+数字点类型
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.NodeType">
+            <summary>
+节点类型
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbAccessEnum">
+            <summary>
+数据库操作权限定义枚举。
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.All">
+            <summary>
+0xffffffff,	具备所有权限
+</summary>
+            <summary>
+0x07, Value | Time | Quality
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.SetTime">
+            <summary>
+0x00002000,	对服务器对时
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ManageEvent">
+            <summary>
+0x00001000,	配置和管理事件文件
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.WriteEvent">
+            <summary>
+0x00000800,	写事件
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ReadEvent">
+            <summary>
+0x00000400,	读事件
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ManageHistory">
+            <summary>
+0x00000200,	配置和管理历史数据文件
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ReadHistory">
+            <summary>
+0x00000100,	读历史数据文件信息
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.WriteData">
+            <summary>
+0x00000080,	写数据
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ReadData">
+            <summary>
+0x00000040,	读数据
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ManageTag">
+            <summary>
+0x00000020,	配置和管理测点树
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ReadTag">
+            <summary>
+0x00000010,	读测点树信息
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ManageUser">
+            <summary>
+0x00000008,	配置和管理用户和用户组
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ReadUser">
+            <summary>
+0x00000004,	读用户和用户组信息
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ManageServer">
+            <summary>
+0x00000002,	配置和管理服务器
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.ReadServer">
+            <summary>
+0x00000001,	读服务器属性
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.None">
+            <summary>
+0x00000000，   没有任何权限
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbServerStatus">
+            <summary>
+服务器状态枚举。
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.StatusMax">
+            <summary>
+最大服务器状态
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Stopping">
+            <summary>
+服务器正在停止中
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.NetError">
+            <summary>
+网络故障，需要重连
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.InnerError">
+            <summary>
+服务器内部错误、故障
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Running">
+            <summary>
+服务器正常运行
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Busy">
+            <summary>
+服务器正忙，暂时不能响应客户端请求
+</summary>
+        </member>
+        <member name="F:&lt;unknown type&gt;.Stopped">
+            <summary>
+服务器已停止，但并未退出
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.ScheduleDbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化类的新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.ScheduleDbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化类的新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.ScheduleDbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化类的新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.ScheduleDbException.#ctor">
+            <summary>
+构造函数，初始化类的新实例。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.ScheduleDbException">
+            <summary>
+服务器调度相关错误类型异常
+</summary>
+
+服务器调度相关错误类型异常
+
+</member>
+        <member name="T:pSpaceCTLNET.RealDataSet">
+            <summary>
+实时和历史数据集合。包含多个实时和历史数据。
+</summary>
+
+实时和历史数据集合。包含多个实时和历史数据。
+
+</member>
+        <member name="P:pSpaceCTLNET.TagValue.TagId">
+            <summary>
+设置或获得测点ID
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagValue.#ctor">
+            <summary>
+默认构造函数，缺省状况下测点ID为-1。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.TagValue">
+            <summary>
+测点ID与实时历史数据组成的四元组。
+</summary>
+
+测点ID与实时历史数据组成的四元组。
+
+</member>
+        <member name="T:pSpaceCTLNET.ITagElement">
+            <summary>
+变量测点（如模拟点、数字点和字符串点等）的接口，
+</summary>
+
+变量测点（如模拟点、数字点和字符串点等）的接口，
+
+</member>
+        <member name="M:pSpaceCTLNET.ITag.Create``1">
+            <summary>
+创建一个测点对象。
+</summary>
+            <returns>
+如果成功返回这个测点对象的引用，否则返回null。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.ITag.Update">
+            <summary>
+设置测点属性集.
+</summary>
+            <returns>
+ 如果成功返回0，否则返回-1.
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.ITag.Validate">
+            <summary>
+获得测点所有的属性集
+</summary>
+            <returns>
+如果成功返回0，否则返回-1.
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.ITag.Construct(pSpaceCTLNET.TagTree,System.String)">
+            <summary>
+根据测点树对象，构造一个测点，缺省状况下测点的ID为-1。
+</summary>
+            <param name="tagtree">测点树对象，如果为Null将引发ArgumentNullException异常。</param>
+            <param name="tagname">测点名，如果为Null将引发ArgumentNullException异常。</param>
+        </member>
+        <member name="P:pSpaceCTLNET.ITag.Item(System.String)">
+            <summary>
+获得或设置测点属性值
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ITag.Properties">
+            <summary>
+获得测点属性集合
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ITag.TagLongName">
+            <summary>
+获得测点长名
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ITag.TagTree">
+            <summary>
+获得测点所隶属的测点树
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ITag.TagId">
+            <summary>
+获得或设置测点ID
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ITag.DataType">
+            <summary>
+获得或设置数据类型
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ITag.TagType">
+            <summary>
+获得测点类型
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.ITag.TagName">
+            <summary>
+获得或设置测点名
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.ITag">
+            <summary>
+测点基类接口，所有其他类型的测点类都从该类派生（包括节点、变量点等）。
+</summary>
+
+测点基类接口，所有其他类型的测点类都从该类派生（包括节点、变量点等）。
+
+</member>
+        <member name="T:pSpaceCTLNET.TagProperties">
+            <summary>
+测点属性值集合类。
+</summary>
+
+测点属性值集合类。
+
+</member>
+        <member name="M:pSpaceCTLNET.TagTypeManager.GetAllPropFields">
+            <summary>
+获得所有测点支持的属性定义
+</summary>
+            <returns>
+如果成功返回所有测点支持的属性列表，否则会触发相应异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+TagTypeDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTypeManager.GetTagTypePropFields(pSpaceCTLNET.TagType)">
+            <summary>
+根据测点类型对象的引用获得测点类型的属性，
+该函数会清空tagType原有属性集合，并设置相应的测点类型对象的属性集合。
+
+</summary>
+            <param name="tagType">测点类型对象，如果为null将引发ArgumentNullException异常。如果tagtype不存在则直接返回，但并不引发异常。</param>
+            <returns>
+如果成功返回测点类型列表，否则会触发相应异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+TagTypeDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTypeManager.GetTagTypeList">
+            <summary>
+获得测点类型列表。
+</summary>
+            <returns>
+如果成功返回测点类型列表，否则会触发相应异常。
+异常与错误：
+	OutOfMemoryException
+	ArgumentNullException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+TagDbException
+		+TagTypeDbException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTypeManager.#ctor(pSpaceCTLNET.DbConnector)">
+            <summary>
+根据数据库连接对象创建测点类型管理器。
+</summary>
+            <param name="dbAdapter">数据库连接对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.TagTypeManager.#ctor">
+            <summary>
+构造函数。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.TagTypeManager">
+            <summary>
+管理和维护测点类型的类定义。
+</summary>
+
+管理和维护测点类型的类定义。
+
+</member>
+        <member name="M:pSpaceCTLNET.DbManager.GetServerTime">
+            <summary>
+获得服务器当前时间。
+</summary>
+            <returns>
+如果成功返回当前服务器的时间。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DbManager.GetConnections">
+            <summary>
+获得服务器当前连接信息。
+</summary>
+            <returns>
+如果成功返回当前服务器 连接信息集合对象。
+异常和错误：
+InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DbManager.GetServerInfo">
+            <summary>
+获得服务器当前状态信息
+</summary>
+            <returns>
+如果成功返回当前服务器信息对象。
+异常和错误：
+	InvalidOperationException(_DBMANAGER_INIT_FAIL_)
+</returns>
+        </member>
+        <member name="P:pSpaceCTLNET.DbManager.DbAdapter">
+            <summary>
+获得或设置数据库连接器
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbManager.#ctor(pSpaceCTLNET.DbConnector)">
+            <summary>
+根据数据库连接对象构造数据库管理器。
+</summary>
+            <param name="dbAdapter">数据库连接对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.DbManager.#ctor">
+            <summary>
+默认构造函数。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbManager">
+            <summary>
+提供对服务器属性进行管理，获取和更新服务器配置信息的类。
+</summary>
+
+提供对服务器属性进行管理，获取和更新服务器配置信息的类。
+
+</member>
+        <member name="M:pSpaceCTLNET.TagTypes.FindByName(System.String)">
+            <summary>
+根据测点类型名返回测点类型对象
+</summary>
+            <param name="tagtypename">测点类型名称，如果为null将引发ArgumentNullException异常。</param>
+            <returns>
+如果成功返回测点类型对象，否则返回null。
+</returns>
+        </member>
+        <member name="T:pSpaceCTLNET.TagTypes">
+            <summary>
+测点类型的集合，类似于表的设计信息的集合。
+</summary>
+
+测点类型的集合，类似于表的设计信息的集合。
+
+</member>
+        <member name="M:pSpaceCTLNET.TagType.GetPropField(System.String)">
+            <summary>
+ 根据属性名获得属性域对象
+</summary>
+            <param name="szPropName">测点属性名称，如果为null将引发ArgumentNullException异常。</param>
+            <returns>
+如果成功则返回测点属性域定义对象，否则返回null。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagType.GetPropField(System.UInt16)">
+            <summary>
+根据属性ID获得属性域对象
+</summary>
+            <param name="nPropId">指定的测点属性ID。</param>
+            <returns>
+如果成功则返回测点属性域定义对象，否则返回null。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagType.Equals(pSpaceCTLNET.TagType)">
+            <summary>
+ 判断两个类型是否相等
+</summary>
+            <param name="tagtype">用于比较的类型，如果为null将引发ArgumentNullException异常。</param>
+            <returns>
+相等则返回true，否则返回false。
+异常和错误：
+	ArgumentNullException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagType.op_Inequality(&lt;unknown type&gt;)">
+            <summary>
+重载是否等于测点类型枚举
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.TagType.op_Equality(&lt;unknown type&gt;)">
+            <summary>
+重载是否等于测点类型枚举
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagType.PropFields">
+            <summary>
+获得测点的属性定义集合
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagType.TagTypeDesc">
+            <summary>
+获得测点类型描述
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagType.TagTypeName">
+            <summary>
+获得测点类型名称
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.TagType.TagTypeId">
+            <summary>
+获得测点类型ID
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.TagType">
+            <summary>
+测点类型基类，类似于表的设计信息。
+用户不能使用new方法创建CTagType的实例，而智能通过CTagTree或CTagTypeManager
+的实例创建并返回相关对象。
+</summary>
+
+测点类型基类，类似于表的设计信息。
+用户不能使用new方法创建CTagType的实例，而智能通过CTagTree或CTagTypeManager
+的实例创建并返回相关对象。
+
+</member>
+        <member name="M:pSpaceCTLNET.PropFieldsMapping.CreateMapping(pSpaceCTLNET.TagPropFields)">
+            <summary>
+创建映射数组.
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.PropFieldsMapping.Item(System.UInt16)">
+            <summary>
+重载[]操作符。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.PropFieldsMapping.Clear">
+            <summary>
+清理映射数组.
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.PropFieldsMapping.MaxPropId">
+            <summary>
+获得最大属性ID
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.PropFieldsMapping.FieldsArray">
+            <summary>
+获得映射数组
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.PropFieldsMapping.#ctor(System.UInt16)">
+            <summary>
+构造测点属性字段的ID索引对象。
+</summary>
+            <param name="nMaxPropId">最大的属性ID值。</param>
+            <returns />
+        </member>
+        <member name="T:pSpaceCTLNET.PropFieldsMapping">
+            <summary>
+测点（类型）属性字段的ID索引，通过ID索引到属性字段。
+</summary>
+
+测点（类型）属性字段的ID索引，通过ID索引到属性字段。
+
+</member>
+        <member name="M:pSpaceCTLNET.TagPropFields.GetPropFields(System.String[])">
+            <summary>
+根据字符串数组组成的属性名数组，获得测点属性字段定义集合
+如果字符串指定的键值存在则返回，如果不存在则不返回
+</summary>
+            <param name="PropNames">属性名数组，如果为null将引发ArgumentNullException异常。</param>
+            <returns>
+如果成功返回测点属性字段定义集合对象，否则引发相应异常。
+异常和错误：
+	ArgumentNullException
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagPropFields.GetPropField(System.UInt16)">
+            <summary>
+ 根据属性ID获得属性域定义对象。
+</summary>
+            <param name="nPropId">指定的属性ID。</param>
+            <returns>
+如果成功返回测点属性域定义对象，否则返回null。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagPropFields.Contains(System.UInt16)">
+            <summary>
+ 判断指定的属性ID是否在集合中。
+</summary>
+            <param name="nPropId">指定的测点属性ID。</param>
+            <returns>
+如果包括则返回true，否则返回false。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagPropFields.Contains(System.String)">
+            <summary>
+判断指定的属性名是否在集合中。
+</summary>
+            <param name="szPropName">属性名，如果为null将引发ArgumentNullException异常。</param>
+            <returns>
+如果包括则返回true，否则返回false。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.TagPropFields.GetPropField(System.String)">
+            <summary>
+ 根据属性名称获得属性域定义对象。
+</summary>
+            <param name="szPropName">测点属性名，如果为null将引发ArgumentNullException异常。</param>
+            <returns>
+如果成功返回属性域定义对象，否则返回null。
+</returns>
+        </member>
+        <member name="P:pSpaceCTLNET.TagPropFields.AllKeys">
+            <summary>
+获得集合中所有的属性名集合。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.TagPropFields">
+            <summary>
+测点(类型)属性的字段定义集合类。
+</summary>
+
+测点(类型)属性的字段定义集合类。
+
+</member>
+        <member name="P:pSpaceCTLNET.PropField.DataType">
+            <summary>
+获得属性的数据类型
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.PropField.ReadOnly">
+            <summary>
+获得属性是否只读
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.PropField.PropDesc">
+            <summary>
+获得属性（字段）描述
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.PropField.PropName">
+            <summary>
+获得属性（字段）名称
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.PropField.PropId">
+            <summary>
+获得属性（字段）ID
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.PropField.#ctor">
+            <summary>
+默认构造函数，测点属性ID初始化构造为-1。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.PropField">
+            <summary>
+属性字段的定义类，类似于表设计信息中某个字段的定义信息。
+</summary>
+
+属性字段的定义类，类似于表设计信息中某个字段的定义信息。
+
+</member>
+        <member name="P:pSpaceCTLNET.RealHisData.QualityStamp">
+            <summary>
+设置或获得质量戳
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.RealHisData.TimeStamp">
+            <summary>
+设置或获得时间戳
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.RealHisData.Value">
+            <summary>
+设置或获得数据值
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.RealHisData">
+            <summary>
+实时和历史数据三元组。
+</summary>
+
+实时和历史数据三元组。
+
+</member>
+        <member name="M:pSpaceCTLNET.DbConnector.IsConnected">
+            <summary>
+ 判断是否已经建立了与数据库的连接
+</summary>
+            <returns>
+如果已经建立连接返回true，否则返回false。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DbConnector.Disconnect">
+            <summary>
+关闭现有与数据库的连接
+如果当前连接并未建立，直接返回，并不提示任何错误。
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbConnector.Connect">
+            <summary>
+建立与数据库的连接
+如果在调用该函数前已经建立了连接，该函数会忽略已有连接，并创建一个新的连接；
+调用者应该尽量避免这样，以免导致服务器大量的资源得不到释放。
+正确的做法应该是先调用IsConnected()判断是否已经建立连接，如果已经建立连接
+则应先释放已有连接，之后再调用Connect()建立新的连接。
+</summary>
+            <returns>
+如果成功返回DbError.HasErrors为false，否则HasErrors为true。
+</returns>
+        </member>
+        <member name="P:pSpaceCTLNET.DbConnector.RetryTimes">
+            <summary>
+获得或设置重连的次数
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbConnector.CanReconnect">
+            <summary>
+获取或设置是否自动重连
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbConnector.Handle">
+            <summary>
+获得连接句柄
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbConnector.UseProxy">
+            <summary>
+获得或设置是否使用代理
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbConnector.ExecuteTimeout">
+            <summary>
+获得或设置执行超时时间，时间单位为秒。即：客户端执行除连接操作以外的对数据库的操作的超时时间。
+0 : 表示使用缺省参数(60秒）
+&gt; 0 : 表示具体的执行超时秒数。
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbConnector.TimeOut">
+            <summary>
+获得或设置连接超时时间，时间单位为秒。
+0 : 表示使用缺省参数(10秒）
+&gt; 0 : 表示具体的连接超时秒数。
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbConnector.Password">
+            <summary>
+获得或设置用户密码
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbConnector.UserName">
+            <summary>
+获取和设置用户名
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbConnector.ServerName">
+            <summary>
+获取和设置服务器名称
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbConnector.#ctor">
+            <summary>
+缺省构造函数，缺省情况下连接超时10秒，执行超时60秒。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbConnector">
+            <summary>
+服务器连接类，保持服务器连接字符串和连接句柄。
+</summary>
+
+服务器连接类，保持服务器连接字符串和连接句柄。
+
+</member>
+        <member name="M:pSpaceCTLNET.DbError.BuildMessage(System.String)">
+            <summary>
+根据附加的消息构造格式化的错误消息。
+</summary>
+            <param name="message">附加的消息。</param>
+            <returns>
+返回格式化后的错误消息。
+</returns>
+        </member>
+        <member name="P:pSpaceCTLNET.DbError.HasErrors">
+            <summary>
+获得当前是否有错误
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbError.ErrorMessage">
+            <summary>
+获得错误描述
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbError.ErrorCode">
+            <summary>
+获得或设置错误号
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbError.#ctor(System.Int32)">
+            <summary>
+默认构造函数。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbError">
+            <summary>
+数据库的错误元素
+</summary>
+
+数据库的错误元素
+
+</member>
+        <member name="M:pSpaceCTLNET.DbException.Dispatch(System.String,System.Int32)">
+            <summary>
+分发数据库异常类型
+</summary>
+            <param name="message">错误描述。</param>
+            <param name="nErrorCode">内部错误号。</param>
+            <returns>
+返回从DbException继承的分发的相应异常对象。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.DbException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+当在派生类中重写时，用关于异常的信息设置 SerializationInfo。
+</summary>
+            <param name="info">序列化对象。</param>
+            <param name="context">上下文对象。</param>
+        </member>
+        <member name="P:pSpaceCTLNET.DbException.ErrorMessage">
+            <summary>
+获得错误号所对应的错误描述
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbException.ErrorCode">
+            <summary>
+获得错误号
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbException.#ctor(System.String,System.Int32,System.Exception)">
+            <summary>
+构造函数，使用指定错误消息和对作为此异常原因的内部异常的引用来初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号</param>
+            <param name="innerException">内部异常对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.DbException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+构造函数，用序列化数据初始化新实例。
+</summary>
+            <param name="info">异常的持久化对象。</param>
+            <param name="context">异常的上下文对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.DbException.#ctor(System.String,System.Int32)">
+            <summary>
+构造函数，使用指定的错误消息初始化新实例。
+</summary>
+            <param name="message">错误消息描述。</param>
+            <param name="nErrorCode">错误号。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.DbException.#ctor">
+            <summary>
+构造函数，初始化新实例。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbException">
+            <summary>
+从数据库返回的错误或API异常基类。
+</summary>
+
+从数据库返回的错误或API异常基类。
+
+</member>
+        <member name="M:pSpaceCTLNET.VarObject.ToVARIANT(System.Object,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管的Object转化到非托管的PS_VARIANT。
+该函数会首先对var执行清理。 
+</summary>
+            <param name="obj">托管的Object</param>
+            <param name="var">非托管的PS_VARIANT对象引用</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.BlobToVARIANT(System.Byte[],__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管字节数组转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管字节数组。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.WStringToVARIANT(System.String,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管宽字符串转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管宽字符串。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.StringToVARIANT(System.String,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管字符串转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管字符串。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.DateTimeToVARIANT(System.DateTime,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管时间对象转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管时间对象。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.TimeSpanToPS_TIME(System.TimeSpan,__PS_TIME*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管TimeSpan转化为非托管的PS_TIME。
+</summary>
+            <param name="timespan">托管TimeSpan对象。</param>
+            <param name="time">非托管PS_TIME对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.PS_TIMEToDateTime(__PS_TIME!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将非托管的PS_TIME转化为托管时间对象。
+</summary>
+            <param name="time">非托管PS_TIME对象。</param>
+            <returns>返回对应的托管时间对象。</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.DateTimeToPS_TIME(System.DateTime,__PS_TIME*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管时间对象转化为非托管的PS_TIME。
+</summary>
+            <param name="_Val">托管时间。</param>
+            <param name="time">非托管PS_TIME对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.DoubleToVARIANT(System.ValueType!System.Double!System.Runtime.CompilerServices.IsBoxed,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管双精度转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管双精度。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.SingleToVARIANT(System.ValueType!System.Single!System.Runtime.CompilerServices.IsBoxed,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管浮点转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管浮点型。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.UInt64ToVARIANT(System.ValueType!System.UInt64!System.Runtime.CompilerServices.IsBoxed,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管无符号64位整型转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管无符号64位整型。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.Int64ToVARIANT(System.ValueType!System.Int64!System.Runtime.CompilerServices.IsBoxed,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管64位整型转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管64位整型。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.UInt32ToVARIANT(System.ValueType!System.UInt32!System.Runtime.CompilerServices.IsBoxed,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管无符号32位整型转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管无符号32位整型。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.Int32ToVARIANT(System.ValueType!System.Int32!System.Runtime.CompilerServices.IsBoxed,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管32位整型转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管32位整型。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.UInt16ToVARIANT(System.ValueType!System.UInt16!System.Runtime.CompilerServices.IsBoxed,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管无符号16位整型转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管无符号16位整型。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.Int16ToVARIANT(System.ValueType!System.Int16!System.Runtime.CompilerServices.IsBoxed,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管16位整型转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管16位整型。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.ByteToVARIANT(System.ValueType!System.Byte!System.Runtime.CompilerServices.IsBoxed,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管字节转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管字节对象。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.CharToVARIANT(System.ValueType!System.Char!System.Runtime.CompilerServices.IsBoxed,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将托管字符转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">托管字符。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.BooleanToVARIANT(System.ValueType!System.Boolean!System.Runtime.CompilerServices.IsBoxed,__PS_VARIANT*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+将布尔型转化为非托管的PS_VARIANT。
+</summary>
+            <param name="_Val">布尔对象。</param>
+            <param name="var">非托管PS_VARIANT对象。</param>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.ToObject(__PS_VARIANT!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+从非托管的PS_VARIANT转化为托管的Object。
+</summary>
+            <param name="var">非托管的PS_VARIANT</param>
+            <returns>
+返回托管的Object。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.GetVariantType(__PS_VARIANT!System.Runtime.CompilerServices.IsConst*!System.Runtime.CompilerServices.IsImplicitlyDereferenced)">
+            <summary>
+ 根据非托管的PS_VARIANT对象获得其对应的托管数据类型。
+</summary>
+            <param name="var">非托管的PS_VARIANT对象</param>
+            <returns>
+获得其对应的托管数据类型。
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.GetTypeById(System.UInt32)">
+            <summary>
+根据非托管的数据类型ID对象获得其对应的托管数据类型。
+</summary>
+            <param name="nDataTypeId">非托管的数据类型ID</param>
+            <returns>
+ 返回其对应的托管数据类型
+</returns>
+        </member>
+        <member name="M:pSpaceCTLNET.VarObject.GetDataTypeId(System.Type)">
+            <summary>
+根据托管的数据类型获得其对应的非托管数据类型ID。
+</summary>
+            <param name="objType">数据类型。</param>
+            <returns>
+返回对应的非托管数据类型ID。
+</returns>
+        </member>
+        <member name="T:pSpaceCTLNET.VarObject">
+            <summary>
+转化PSVARIANT和Object
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbEvents">
+            <summary>
+数据库事件集合类。
+</summary>
+
+数据库事件集合类。
+
+</member>
+        <member name="M:pSpaceCTLNET.DbEvent.Query(pSpaceCTLNET.DbConnector,pSpaceCTLNET.DbEventFilter)">
+            <summary>
+查询符合条件的事件
+</summary>
+            <param name="conn">数据库连接对象，如果为null将引发ArgumentNullException异常。</param>
+            <param name="filter">事件查询过滤器对象，如果为null将引发ArgumentNullException异常。</param>
+            <returns>
+如果成功返回报警集合DbEvents对象，或者触发异常。
+	ArgumentNullException
+	NotSupportedException
+	DbException
+		+CommonDbException
+		+ConnectDbException
+		+AuthorityDbException
+		+EventDbException
+</returns>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEvent.Description">
+            <summary>
+获得事件描述
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEvent.TagId">
+            <summary>
+获得相关测点Id
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEvent.EventLevel">
+            <summary>
+获得事件等级
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEvent.EventTopic">
+            <summary>
+获得事件主题
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEvent.UserId">
+            <summary>
+获得用户标识号
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEvent.Time">
+            <summary>
+获得事件发生时间
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEvent.EventId">
+            <summary>
+获得事件ID
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbEvent">
+            <summary>
+数据库事件处理类。
+</summary>
+
+数据库事件处理类。
+
+</member>
+        <member name="M:pSpaceCTLNET.DbEventFilter.ClearFilter">
+            <summary>
+清理事件查询过滤器。该函数会将所有的查询选项设置为false。
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.QueryDescription">
+            <summary>
+获得或设置是否查询事件内容描述
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.QueryHighLevel">
+            <summary>
+获得或设置是否查询事件级别的高限
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.QueryLowLevel">
+            <summary>
+获得或设置是否查询事件级别的低限
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.QueryEventTopic">
+            <summary>
+获得或设置是否查询事件主题
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.QueryEndTime">
+            <summary>
+获得或设置是否查询事件发生的结束时间
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.QueryStartTime">
+            <summary>
+获得或设置是否查询事件发生的起始时间
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.QueryUserId">
+            <summary>
+获得或设置是否查询用户标识号
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.QueryTagId">
+            <summary>
+获得或设置是否查询相关测点ID
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.QueryEventId">
+            <summary>
+获得或设置是否查询事件编号
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.Description">
+            <summary>
+获得或设置需要查询的事件内容描述
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.HighLevel">
+            <summary>
+获得或设置需要查询的查询事件级别的高限
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.LowLevel">
+            <summary>
+获得或设置需要查询的查询事件级别的低限
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.EventTopic">
+            <summary>
+获得或设置需要查询的事件主题
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.EndTime">
+            <summary>
+获得或设置需要查询的事件发生 结束时间
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.StartTime">
+            <summary>
+获得或设置需要查询的事件发生 起始时间
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.UserId">
+            <summary>
+获得或设置需要查询的用户标识号
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.TagId">
+            <summary>
+获得或设置需要查询的相关测点ID
+</summary>
+        </member>
+        <member name="P:pSpaceCTLNET.DbEventFilter.EventId">
+            <summary>
+获得或设置事件相关的编号
+</summary>
+        </member>
+        <member name="M:pSpaceCTLNET.DbEventFilter.#ctor">
+            <summary>
+默认构造函数。
+</summary>
+        </member>
+        <member name="T:pSpaceCTLNET.DbEventFilter">
+            <summary>
+事件查询过滤器
+</summary>
+
+数据报警查询过滤器
+
+</member>
+    </members>
+</doc>

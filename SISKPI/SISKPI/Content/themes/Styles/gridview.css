@@ -1,0 +1,102 @@
+﻿.datagrid-top {
+    position: absolute;
+    top: 70px;
+}
+
+
+.datagrid {
+    margin-bottom:0;
+     
+}
+
+.datagrid-title-panel {
+    background: #F7F7F7;
+    color: #666;
+    font-weight: bold;
+}
+
+.datagrid-title {
+    border-bottom: 1px solid #ccc;
+    zoom: 1;
+    padding: 5px;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+    .datagrid-title span.rev-combo {
+        color: #797979;
+        padding: 16px;
+        line-height: normal;
+        -webkit-border-radius: 0px 4px 0px 0px;
+        border-radius: 0px 4px 0px 0px;
+    }
+
+
+/* header cell style */
+.datagrid th {
+    
+    overflow: hidden;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    color: #666;
+    text-shadow: 0 1px 0 #fff;
+    background-image: url('/Content/themes/images/column-header-bg.png');
+    background-repeat: repeat-x;
+    height: 25px;
+}
+
+.datagrid td.grid-number-col {
+    border-right: 1px solid #d3d3d3;
+    border-left: 1px solid #ccc;
+    background: #F7F7F7;
+    color: #000000;
+    padding: 4px 5px;
+    
+}
+
+    .datagrid td.grid-number-col:hover {
+        cursor: pointer;
+    }
+
+.table-hover > tbody > tr:hover {
+    background-color: #d8e8fa;
+}
+
+.datagrid-row-select {
+    background-color: #6699cc;
+    color: #fff;
+}
+
+.datagrid .paging {
+    background-image: url('/Content/themes/images/column-header-bg.png');
+    background-repeat: repeat-x;
+}
+
+    .datagrid .paging > td > table {
+        float: left;
+        border-radius: 4px;
+    }
+
+.paging a,
+.paging span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+    .paging a:hover,
+    .paging span:hover,
+    .paging a:focus,
+    .paging span:focus {
+        color: #23527c;
+        background-color: #eee;
+        border-color: #ddd;
+    }

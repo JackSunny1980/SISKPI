@@ -1,0 +1,45 @@
+<html>
+<head runat="server">
+    <title>powered by carson</title>
+    <style>
+        .menuBox
+        {
+            width: 100%;
+            height: 100%;
+            border-top: 2px solid #3F4F8F;
+            border-bottom: 2px solid #3F4F8F;
+        }
+    </style>
+</head>
+
+<script language="javascript">
+    var isFullScreen = false;
+    function centerClick() {
+        isFullScreen = !isFullScreen;
+        MHideLeft();
+    }
+    function MHideLeft() {
+
+        var dLeftWidth = 250;
+        if (isFullScreen)//Is full display state;
+        {
+            var strLocal = "0," + String(5) + ",*";
+            top.MainFrame.cols = strLocal;
+        }
+        else {
+            var strLocal = String(dLeftWidth) + "," + String(5) + ",*";
+            top.MainFrame.cols = strLocal;
+        }
+    }
+</script>
+
+<body style="cursor: move" onclick="centerClick()" scroll="no" style="margin: 0;padding: 0;" oncontextmenu="return false">
+    <table class="menuBox" cellspacing="0">
+        <tr>
+            <td style="padding-right: 0px; padding-left: 0px; background-image: url(Imgs/menu_td_rt_bg.gif)">
+                <img src='Imgs/menu_srco_point.gif' style="margin: 0; padding: 0">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

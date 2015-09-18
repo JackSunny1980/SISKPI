@@ -1,0 +1,246 @@
+#divFavContent
+{
+	display: none;
+}
+.toolbarMenu
+{
+	border-collapse: collapse;
+}
+.toolbarMenu TD
+{
+	width: 21px;
+	cursor: hand;
+	height: 20px;
+	text-align: center;
+}
+.toolbarMenuOver
+{
+	border-right: #0a246a 1px solid;
+	border-top: #0a246a 1px solid;
+	border-left: #0a246a 1px solid;
+	border-bottom: #0a246a 1px solid;
+	background-color: #b6bdd2;
+}
+.toolbarMenuOut
+{
+	border-right: 0px;
+	border-top: 0px;
+	border-left: 0px;
+	border-bottom: 0px;
+}
+.topBg
+{
+	background-color: #172971;
+}
+.templateToolbarBg
+{
+	background-image: url(../../../images/menu/toolbarbg.jpg);
+	background-color: #dddddd;
+}
+.OTtable
+{
+	border-right: #aaa 1px solid;
+	border-top: #aaa 1px solid;
+	border-left: #aaa 1px solid;
+	width: 100%;
+	border-bottom: #aaa 1px solid;
+	height: 100%;
+	background-color: #2c4794;
+}
+.OTtd
+{
+	padding-left: 2px;
+	line-height: 18px;
+}
+.OTspan
+{
+	display: none;
+}
+.folder
+{
+	border-right: #aaa 0px solid;
+	padding-right: 0px;
+	border-top: #aaa 0px solid;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	border-left: #aaa 0px solid;
+	cursor: hand;
+	color: #000066;
+	padding-top: 0px;
+	border-bottom: #aaa 0px solid;
+	position: relative;
+	height: 22px;
+	background-color: #ffffff;
+}
+.folder IMG
+{
+	margin: 0px;
+}
+.folderMouseOver
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	cursor: hand;
+	color: #000066;
+	padding-top: 0px;
+	position: relative;
+	height: 22px;
+	background-color: #3dadd5;
+}
+.folderMouseOver IMG
+{
+	margin: 0px;
+}
+.file
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	vertical-align: top;
+	padding-top: 0px;
+	background-color: #ffffff;
+}
+.file A
+{
+	color: #000000;
+	text-decoration: none;
+}
+.handle
+{
+	background-image: url(images/scroll_mid_lf.gif);
+	cursor: row-resize;
+	height: 3px;
+}
+#thumbBox
+{
+	background-image: url(images/menu_buttom.gif);
+	color: white;
+	height: 22px;
+	background-color: #ffff00;
+	text-align: right;
+}
+#thumbBox IMG
+{
+	margin-right: 5px;
+}
+#rightArrow
+{
+	cursor: hand;
+}
+.menuBox
+{
+	border-top: #3f4f8f 1px solid;
+	z-index: 2;
+	left: 0px;
+	width: 100%;
+	color: blue;
+	border-bottom: #3f4f8f 1px solid;
+	position: absolute;
+	top: 0px;
+	height: 100%;
+}
+.menuBoxTd
+{
+	padding-right: 0px;
+	padding-left: 4px;
+	z-index: 4;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	position: relative;
+	height: 100%;
+	background-color: #ffff00;
+}
+.menuBoxTdBu
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	background-image: url(images/menu_td_rt_bg.gif);
+	padding-bottom: 0px;
+	width: 7px;
+	padding-top: 0px;
+	height: 100%;
+}
+.topword
+{
+	z-index: 4;
+	left: 32px;
+	color: #1161a8;
+	position: absolute;
+	top: 3px;
+}
+.topimg
+{
+	z-index: 3;
+	FILTER: alpha(opacity: 50);
+	width: 100%;
+	position: relative;
+	height: 100%;
+	text-align: right;
+	-moz-opacity: 0;
+	opacity: 0;
+}
+.topicon
+{
+	z-index: 4;
+	left: 8px;
+	color: blue;
+	position: absolute;
+	top: 1px;
+}
+.toponly
+{
+	z-index: 3;
+	FILTER: alpha(opacity: 40);
+	-moz-opacity: 0;
+	opacity: 0;
+}
+.menu_move
+{
+	z-index: 99;
+	left: 2px;
+	position: absolute;
+	top: 45%;
+}
+.menu_move_bg
+{
+	z-index: 1;
+	FILTER: alpha(opacity: 50);
+	width: 7px;
+	position: relative;
+	height: 100%;
+	text-align: right;
+	-moz-opacity: 0;
+	opacity: 0;
+}
+.menubg
+{
+	z-index: 1;
+	FILTER: alpha(opacity: 50);
+	width: 100%;
+	position: relative;
+	height: 100%;
+	text-align: right;
+	-moz-opacity: 0;
+	opacity: 0;
+}
+.menu_css
+{
+	position: relative;
+	background-color: #ffffff;
+}
+.menutop
+{
+	padding-right: 0px;
+	background-position: right 50%;
+	padding-left: 4px;
+	z-index: 2;
+	left: 8px;
+	padding-bottom: 4px;
+	color: blue;
+	padding-top: 4px;
+	background-repeat: repeat-y;
+	position: absolute;
+	top: 1px;
+	height: 100%;
+}

@@ -1,0 +1,100 @@
+﻿body{font-size:12px;line-height:160%;margin:0px;}
+.table{border-spacing:0px;width:100%;padding:0px;}
+.tableinner{border-spacing:0px;width:95%;padding:0px;}
+.table_td{border-right:1px solid #6593cf;border-bottom:1px solid #6593cf;border-left:1px solid #6593cf;}
+.table_tr{background-color:white;}
+td{padding:0px}
+
+font{color: Blue; font-weight: bold; font-size: 20px; font-family: @宋体;}
+
+#tls{border-left:1px solid #6593cf;border-top:1px solid #6593cf;margin-bottom:5px;}
+#tls th{font-size:14px;background:url(images/path_bg.png) repeat-x;line-height:24px;}
+#tls th,#tls td{border-right:1px solid #6593cf;border-bottom:1px solid #6593cf; border-left:1px solid #6593cf;}
+#tls td.textc{padding-left:5px;}
+#tls tr{background-color:white}
+a.edit,a.del{padding-left:15px;margin:0px 3px;color:#193541}
+a.edit{background:url(images/edit.gif) no-repeat left center;}
+a.del{background:url(images/del.gif) no-repeat left center;}
+
+.btn_mouseout {
+ border-right: #2c59aa 1px solid; padding-right: 2px; border-top: #2c59aa 1px solid; padding-left: 2px; font-size: 12px; filter: progid:dximagetransform.microsoft.gradient(gradienttype=0, startcolorstr=#ffffff, endcolorstr=#c3daf5); border-left: #2c59aa 1px solid; cursor: hand; color: black; padding-top: 2px; border-bottom: #2c59aa 1px solid
+}
+.btn_mouseover {
+ border-right: #2c59aa 1px solid; padding-right: 2px; border-top: #2c59aa 1px solid; padding-left: 2px; font-size: 12px; filter: progid:dximagetransform.microsoft.gradient(gradienttype=0, startcolorstr=#ffffff, endcolorstr=#d7e7fa); border-left: #2c59aa 1px solid; cursor: hand; color: black; padding-top: 2px; border-bottom: #2c59aa 1px solid
+}
+.btn_mousedown {
+ border-right: #ffe400 1px solid; padding-right: 2px; border-top: #ffe400 1px solid; padding-left: 2px; font-size: 12px; filter: progid:dximagetransform.microsoft.gradient(gradienttype=0, startcolorstr=#ffffff, endcolorstr=#c3daf5); border-left: #ffe400 1px solid; cursor: hand; color: black; padding-top: 2px; border-bottom: #ffe400 1px solid
+}
+.btn_mouseup {
+ border-right: #2c59aa 1px solid; padding-right: 2px; border-top: #2c59aa 1px solid; padding-left: 2px; font-size: 12px; filter: progid:dximagetransform.microsoft.gradient(gradienttype=0, startcolorstr=#ffffff, endcolorstr=#c3daf5); border-left: #2c59aa 1px solid; cursor: hand; color: black; padding-top: 2px; border-bottom: #2c59aa 1px solid
+}
+
+
+.GridViewStyle
+{   
+    border-right: 2px solid #A7A6AA;
+    border-bottom: 2px solid #A7A6AA;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    padding: 4px;
+}
+
+.GridViewStyle a
+{
+    color:Blue;
+}
+
+.GridViewHeaderStyle th
+{
+    border-left: 1px solid #EBE9ED;
+    border-right: 1px solid #EBE9ED;
+}
+
+.GridViewHeaderStyle
+{
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: White;
+}
+
+.GridViewFooterStyle
+{
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: White;
+}
+
+.GridViewRowStyle
+{
+    background-color: #F7F6F3;
+    color: #333333;
+}
+
+.GridViewAlternatingRowStyle
+{
+    background-color: #FFFFFF;
+    color: #284775;
+}
+
+.GridViewRowStyle td, .GridViewAlternatingRowStyle td
+{
+    border: 1px solid #EBE9ED;
+}
+
+.GridViewSelectedRowStyle
+{
+    background-color: #E2DED6;
+    font-weight: bold;
+    color: #333333;
+}
+
+.GridViewPagerStyle
+{
+    background-color: #284775;
+    color: #FFFFFF;
+}
+
+.GridViewPagerStyle table /* to center the paging links*/
+{
+    margin: 0 auto 0 auto;
+}

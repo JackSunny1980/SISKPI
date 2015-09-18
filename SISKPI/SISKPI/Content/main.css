@@ -1,0 +1,51 @@
+﻿body {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.475;
+    font-family: Tahoma,Arial,Roboto,”Droid Sans”,”Helvetica Neue”,”Droid Sans Fallback”,”Heiti SC”,”Hiragino Sans GB”,Simsun,sans-self;
+   
+}
+
+.header {
+    left: 0;
+    right: 0;
+    z-index: 1002;
+}
+
+.label-text {
+    color: #2980b9;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.reset-txtArea {
+    border: solid 1px #88c3e1;
+    background-color: #d9edf6;
+}
+
+.dataTables_length {
+    width: 40%;
+    float: left;
+    padding: 5px 0;
+}
+
+div.dataTables_length label {
+    float: left;
+    text-align: left;
+     font-weight: 300;
+}
+
+.dataTables_info {
+    float: right;
+    width: 60%;
+}
+
+div.dataTables_info label {
+    margin-left: 10px;
+    font-weight: 300;
+}
+
+.dataTables_info label span {
+   float: right;
+   display: inline-block;
+}
